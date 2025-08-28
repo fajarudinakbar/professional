@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fajarudin Akbar | English Teacher, TEFL/TESOL Educator, EdTech Practitioner</title>
 
+    <!-- META TAGS UNTUK THUMBNAIL SAAT SHARE URL (OPEN GRAPH & TWITTER CARD) -->
     <meta property="og:title" content="Fajarudin Akbar - Professional Portfolio">
     <meta property="og:site_name" content="Fajarudin Akbar's Portfolio">
     <meta property="og:description" content="An English Teacher, TEFL/TESOL Educator, and Educational Technology Practitioner.">
@@ -18,6 +19,7 @@
     <meta name="twitter:title" content="Fajarudin Akbar - Professional Portfolio">
     <meta name="twitter:description" content="An English Teacher, TEFL/TESOL Educator, and Educational Technology Practitioner.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+    <!-- AKHIR DARI META TAGS -->
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -177,20 +179,16 @@
         <!-- Hero Section -->
         <section id="home" class="py-24 md:py-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <img src="https://github.com/fajarudinakbar/Images/blob/main/Fajarudin%20Akbar.png?raw=true" 
+                <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" 
                      alt="Foto profil Fajarudin Akbar" 
                      class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 border-4 border-white shadow-xl">
                 <h1 class="text-5xl font-extrabold sm:text-6xl md:text-7xl tracking-tighter">Fajarudin Akbar</h1>
                 <p class="mt-4 max-w-4xl mx-auto text-lg md:text-xl text-gray-700">English Language Teacher&nbsp;•&nbsp;TEFL/TESOL Educator&nbsp;•&nbsp;Educational Technology Practitioner</p>
                 <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-600">Pioneering the integration of AI and Open Educational Resources to create dynamic, student-centered learning experiences for a global audience.</p>
-                <div class="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
                     <div class="card bg-white p-6 rounded-xl">
                         <p class="text-5xl font-bold text-accent">7+</p>
                         <p class="mt-2 text-lg font-medium text-gray-700">Years of Experience</p>
-                    </div>
-                    <div class="card bg-white p-6 rounded-xl">
-                        <p class="text-5xl font-bold text-accent">4.6</p>
-                        <p class="mt-2 text-lg font-medium text-gray-700">Verified Rating (65+)</p>
                     </div>
                     <div class="card bg-white p-6 rounded-xl">
                         <p class="text-5xl font-bold text-accent">300+</p>
@@ -328,11 +326,6 @@
                         <p class="mt-2 text-gray-600">Developed a suite of functional AI tools, including a GSE-aligned worksheet generator and a virtual assistant, to provide practical support for teachers and students.</p>
                         <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
                     </a>
-                    <a href="https://www.pearson.com/languages/why-pearson/the-global-scale-of-english/gse-ambassadors.html" target="_blank" class="card block bg-white rounded-xl p-6 relative">
-                        <h3 class="text-lg font-bold">GSE Ambassador for Pearson</h3>
-                        <p class="mt-2 text-gray-600">Advocating for and training educators on the Global Scale of English framework through articles and workshops to improve pedagogical precision and professional development.</p>
-                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
-                    </a>
                     <a href="https://statictoapp.playcode.io" target="_blank" class="card block bg-white rounded-xl p-6 relative">
                         <h3 class="text-lg font-bold">Static Worksheets to Interactive Apps</h3>
                         <p class="mt-2 text-gray-600">Transformed traditional teaching materials into dynamic, student-centered learning experiences using AI. Highlighted as a "standout project" by edCommunity.</p>
@@ -348,6 +341,11 @@
                         <p class="mt-2 text-gray-600">A practical framework for educators to Find, Personalize, and Plan lessons using modern EdTech tools and pedagogical strategies.</p>
                         <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
                     </a>
+                    <a href="https://fajarudinakbar.github.io/hands-on-genai/" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">Hands-On with Generative AI</h3>
+                        <p class="mt-2 text-gray-600">A practical framework and hands-on guide for educators to leverage generative AI in their teaching practice, presented for Trinity College London.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Framework →</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -357,28 +355,51 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold tracking-tight">Evidence of Impact & Recognition</h2>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">My approach is substantiated by quantitative data, industry recognition, and peer endorsements from global leaders in education and technology.</p>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">My approach is substantiated by industry recognition and peer endorsements from global leaders in education and technology.</p>
                 </div>
-                <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div class="chart-container w-full max-w-sm mx-auto h-80">
-                        <canvas id="impactChart"></canvas>
+                <div class="mt-12 max-w-3xl mx-auto space-y-6">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <p class="text-gray-600 italic">"An <span class="font-bold text-accent">active member</span>... reimagining what's possible in the classroom by using AI and interactive tools to create dynamic, student-centered learning experiences."</p>
+                        <p class="mt-2 text-right font-medium text-gray-800">- edCommunity Spotlight</p>
                     </div>
-                    <div class="space-y-6">
-                        <div class="bg-white p-6 rounded-xl border border-gray-200">
-                            <p class="text-gray-600 italic">"An <span class="font-bold text-accent">active member</span>... reimagining what's possible in the classroom by using AI and interactive tools to create dynamic, student-centered learning experiences."</p>
-                            <p class="mt-2 text-right font-medium text-gray-800">- edCommunity Spotlight</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-xl border border-gray-200">
-                            <p class="text-gray-600 italic">"An <span class="font-bold text-accent">exceptional educator</span> and an inspiring academic and business English teacher."</p>
-                            <p class="mt-2 text-right font-medium text-gray-800">- Cathoven AI TechTeach Innovator Spotlight</p>
-                        </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <p class="text-gray-600 italic">"An <span class="font-bold text-accent">exceptional educator</span> and an inspiring academic and business English teacher."</p>
+                        <p class="mt-2 text-right font-medium text-gray-800">- Cathoven AI TechTeach Innovator Spotlight</p>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Global Recognition Section -->
+        <section id="recognition" class="py-24 bg-secondary fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">Global Recognition & Contributions</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">My work is recognized by some of the world's leading educational organizations, where I contribute as a thought leader and community builder.</p>
+                </div>
+                <div class="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+                    <div class="card bg-white rounded-xl p-6 flex flex-col">
+                        <h3 class="text-xl font-bold">OPEN US Program Community Lead</h3>
+                        <p class="mt-4 text-gray-600 flex-grow">As a MOOC Camp Facilitator and Community Lead for the U.S. Department of State's OPEN Program, I guide and mentor Indonesian English teachers, helping to localize global best practices and build a robust professional learning community.</p>
+                        <a href="https://www.youtube.com/watch?v=5R4GUxjkcC8&feature=youtu.be" target="_blank" class="mt-4 inline-block font-semibold text-accent">View Featured Alumni Highlight →</a>
+                    </div>
+                    <div class="card bg-white rounded-xl p-6 flex flex-col">
+                        <h3 class="text-xl font-bold">TeachingEnglish British Council Contributor</h3>
+                        <p class="mt-4 text-gray-600 flex-grow">Contributing to the global ELT community by speaking at British Council webinars, conferences, and podcasts, sharing insights on EdTech, AI, and innovative pedagogical frameworks.</p>
+                        <a href="https://www.facebook.com/share/v/17ALLRSf62/" target="_blank" class="mt-4 inline-block font-semibold text-accent">View Recorded Live Session →</a>
+                    </div>
+                    <a href="https://www.pearson.com/languages/why-pearson/the-global-scale-of-english/gse-ambassadors.html" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">GSE Ambassador for Pearson</h3>
+                        <p class="mt-2 text-gray-600">Advocating for and training educators on the Global Scale of English framework through articles and workshops to improve pedagogical precision and professional development.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
         <!-- Presentations Section -->
-        <section id="presentations" class="py-24 bg-secondary fade-in-section">
+        <section id="presentations" class="py-24 fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
                     <h2 class="text-4xl font-extrabold tracking-tight">International Presentations</h2>
@@ -393,7 +414,7 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 fade-in-section">
+        <section id="contact" class="py-24 bg-secondary fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                  <h2 class="text-4xl font-extrabold tracking-tight">Let's Collaborate</h2>
                  <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">I am always open to new opportunities, collaborations, and conversations. Whether you're a potential student, a fellow educator, or an institution looking to innovate, I'd love to connect.</p>
@@ -495,69 +516,9 @@
                 });
             });
 
-            // Chart.js implementation
-            const ctx = document.getElementById('impactChart').getContext('2d');
-            
-            const gradient = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
-            gradient.addColorStop(0, '#0D9488');
-            gradient.addColorStop(1, '#99F6E4');
-
-            const impactChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ['Verified Rating', ''],
-                    datasets: [{
-                        label: 'Impact Rating',
-                        data: [4.6, 5.0 - 4.6],
-                        backgroundColor: [
-                            gradient,
-                            '#E5E7EB'
-                        ],
-                        borderColor: [
-                            '#FFFFFF',
-                            '#FFFFFF'
-                        ],
-                        borderWidth: 4,
-                        hoverOffset: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    cutout: '75%',
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            enabled: true,
-                            backgroundColor: '#1F2937',
-                            titleFont: { size: 14, weight: 'bold' },
-                            bodyFont: { size: 12 },
-                            padding: 10,
-                            cornerRadius: 4,
-                            callbacks: {
-                                label: function(context) {
-                                    return ` ${context.raw}/5.0 from 65+ reviews`;
-                                }
-                            }
-                        },
-                        title: {
-                            display: true,
-                            text: 'Verified Student & Client Rating',
-                            position: 'bottom',
-                            font: {
-                                size: 16,
-                                weight: 'bold'
-                            },
-                            color: '#1E3A8A',
-                            padding: {
-                                top: 20
-                            }
-                        }
-                    }
-                }
-            });
+            // Chart.js implementation (REMOVED)
+            // const ctx = document.getElementById('impactChart').getContext('2d');
+            // ... chart code was here ...
         });
     </script>
 </body>
