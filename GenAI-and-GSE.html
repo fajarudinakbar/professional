@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guiding Generative AI with GSE Learning Objectives | Fajarudin Akbar</title>
+
+ <!-- Social Media Meta Tags (Open Graph & Twitter) -->
+    <meta property="og:title" content="Guiding Generative AI with GSE Learning Objectives">
+    <meta property="og:description" content="Exploring Principled, Effective, and Accessible ELT Material Design">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fajarudinakbar.github.io/GenAI-with-GSE/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Screenshot%202025-08-28%20225611.png">
+    <meta property="og:image:secure_url" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Screenshot%202025-08-28%20225611.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guiding Generative AI with GSE Learning Objectives">
+    <meta name="twitter:description" content="Exploring Principled, Effective, and Accessible ELT Material Design">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Screenshot%202025-08-28%20225611.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Custom styles to complement Tailwind */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* A slightly richer light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Modern text selection style */
+        ::selection {
+            background-color: #3b82f6; /* Tailwind's blue-500 */
+            color: white;
+        }
+
+        /* Modern, subtle animated gradient for the header */
+        .header-gradient {
+            background: linear-gradient(-45deg, #1e3a8a, #3b82f6, #1d4ed8, #2563eb);
+            background-size: 400% 400%;
+            animation: gradient-animation 18s ease infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Smoother animation for elements appearing on scroll */
+        .fade-in-up, .fade-in-left, .fade-in-right {
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.6, 0.2, 0.1, 1), transform 0.8s cubic-bezier(0.6, 0.2, 0.1, 1);
+        }
+        .fade-in-up { transform: translateY(40px); }
+        .fade-in-left { transform: translateX(-40px); }
+        .fade-in-right { transform: translateX(40px); }
+
+        .fade-in-up.visible, .fade-in-left.visible, .fade-in-right.visible {
+            opacity: 1;
+            transform: translateY(0) translateX(0);
+        }
+
+        /* Custom focus ring for accessibility */
+        .focus-ring {
+            @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+        }
+
+        /* Styling for the prompt code blocks */
+        .prompt-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            position: relative;
+        }
+        .prompt-block pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 1rem;
+        }
+
+        /* Interactive Card Style */
+        .interactive-card {
+             will-change: transform;
+             transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s cubic-bezier(.25,.8,.25,1);
+        }
+        .interactive-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.15);
+        }
+
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header & Navigation -->
+    <header class="header-gradient text-white sticky top-0 z-50 shadow-lg">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <div class="font-bold text-xl tracking-wide">Fajarudin Akbar | ELT-AI</div>
+            <div class="hidden md:flex items-center space-x-8 text-base font-medium">
+                <a href="#challenge" class="hover:text-slate-200 transition-colors duration-300">Challenge</a>
+                <a href="#method" class="hover:text-slate-200 transition-colors duration-300">Method</a>
+                <a href="#findings" class="hover:text-slate-200 transition-colors duration-300">Findings</a>
+                <a href="#examples" class="hover:text-slate-200 transition-colors duration-300">Examples</a>
+                <a href="#webinar" class="hover:text-slate-200 transition-colors duration-300">Webinar</a>
+                <a href="#conclusion" class="hover:text-slate-200 transition-colors duration-300">Conclusion</a>
+                <a href="#connect" class="bg-white text-blue-700 px-5 py-2 rounded-full font-semibold hover:bg-slate-100 transition-transform transform hover:scale-105 focus-ring">Connect</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden focus-ring rounded-md p-1">
+                <i class="fas fa-bars text-2xl"></i>
+                <span class="sr-only">Open menu</span>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pb-4 text-lg">
+            <a href="#challenge" class="block py-2 px-2 rounded-md hover:bg-blue-700">Challenge</a>
+            <a href="#method" class="block py-2 px-2 rounded-md hover:bg-blue-700">Method</a>
+            <a href="#findings" class="block py-2 px-2 rounded-md hover:bg-blue-700">Findings</a>
+            <a href="#examples" class="block py-2 px-2 rounded-md hover:bg-blue-700">Examples</a>
+            <a href="#webinar" class="block py-2 px-2 rounded-md hover:bg-blue-700">Webinar</a>
+            <a href="#conclusion" class="block py-2 px-2 rounded-md hover:bg-blue-700">Conclusion</a>
+            <a href="#connect" class="block mt-2 bg-white text-blue-700 px-4 py-2 rounded-full font-semibold text-center">Connect</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 text-center fade-in-up">
+                <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight tracking-tighter">
+                    Guiding Generative AI with <span class="text-blue-600">GSE Learning Objectives</span>
+                </h1>
+                <p class="mt-6 max-w-4xl mx-auto text-xl md:text-2xl text-slate-600">
+                    Exploring Principled, Effective, and Accessible ELT Material Design
+                </p>
+            </div>
+        </section>
+
+        <!-- The Challenge Section -->
+        <section id="challenge" class="py-20 md:py-24 bg-slate-50" aria-labelledby="challenge-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center fade-in-up">
+                    <h2 id="challenge-heading" class="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-slate-900">
+                        <i class="fas fa-puzzle-piece text-blue-500"></i>
+                        <span>The Core Challenge</span>
+                    </h2>
+                    <p class="mt-4 text-xl text-slate-600">Exploring the bridge between AI potential and pedagogical principle.</p>
+                </div>
+                <div class="mt-16 grid md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 interactive-card fade-in-left" data-tilt>
+                        <div class="flex items-center gap-4">
+                            <h3 class="text-2xl font-semibold">🤔 The Problem</h3>
+                        </div>
+                        <p class="mt-4 text-lg text-slate-600"><strong>Generative AI tools offer immense possibilities for English teaching,</strong> but many implementations can lack pedagogical grounding. This may result in generic, misaligned, or ineffective learning content that doesn't meet specific student needs.</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-6 text-center fade-in-right">
+                        <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 interactive-card" data-tilt>
+                            <span class="text-6xl font-extrabold text-red-600">4K+</span>
+                            <p class="text-base text-slate-500 mt-1">GSE Descriptors</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 interactive-card" data-tilt>
+                            <span class="text-6xl font-extrabold text-red-600 counter" data-target="3">0</span>
+                            <p class="text-base text-slate-500 mt-1">AI Tools Tested</p>
+                        </div>
+                        <div class="col-span-2 bg-white p-6 rounded-xl shadow-lg border border-slate-200 interactive-card" data-tilt>
+                             <p class="text-lg text-slate-700 font-medium">This application explores aligning <span class="font-bold text-blue-600">ChatGPT, Copilot & Claude</span> with the <a href="https://www.pearson.com/english/gse.html" target="_blank" rel="noopener noreferrer" class="font-bold text-green-600 underline decoration-green-400/70 underline-offset-4 hover:bg-green-100 hover:text-green-700 transition-all rounded-sm p-1 -m-1 focus-ring">Global Scale of English (GSE)</a> framework for a systematic approach to ELT material design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Method Section -->
+        <section id="method" class="py-20 md:py-24 bg-white" aria-labelledby="method-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center fade-in-up">
+                    <h2 id="method-heading" class="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-slate-900">
+                        <i class="fas fa-sitemap text-blue-500"></i>
+                        <span>Application Method</span>
+                    </h2>
+                    <p class="mt-4 text-xl text-slate-600">A practical approach to testing and applying AI tools.</p>
+                </div>
+                <div class="mt-16 p-8 lg:p-10 bg-slate-50 rounded-xl border border-slate-200 shadow-sm fade-in-up">
+                    <ul class="space-y-8">
+                        <li class="flex items-start gap-5">
+                            <i class="fas fa-vial text-3xl text-yellow-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-2xl">Exploratory Testing</h4>
+                                <p class="text-lg text-slate-600 mt-1">Iteratively refining prompts based on specific GSE learning objectives to test the AI's ability to generate level-appropriate content.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5">
+                            <i class="fas fa-balance-scale text-3xl text-yellow-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-2xl">Comparative Analysis</h4>
+                                <p class="text-lg text-slate-600 mt-1">Evaluating outputs from different GenAI tools for consistency, quality, accuracy, and adherence to the prompt's pedagogical constraints.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-5">
+                            <i class="fas fa-book-open-reader text-3xl text-yellow-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-2xl">Contextual Review</h4>
+                                <p class="text-lg text-slate-600 mt-1">Connecting the practical application to current ideas in EdTech and language teaching to ensure it's relevant and informed.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt-10 pt-8 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-3 gap-5 text-center">
+                        <a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer" class="block p-5 text-lg border-2 border-green-500 rounded-lg bg-white interactive-card focus-ring" data-tilt>
+                            <div class="flex items-center justify-center gap-2">
+                                <strong>ChatGPT</strong>
+                                <i class="fas fa-external-link-alt text-xs opacity-50"></i>
+                            </div>
+                            <small class="block text-slate-500">(OpenAI)</small>
+                        </a>
+                        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="block p-5 text-lg border-2 border-blue-500 rounded-lg bg-white interactive-card focus-ring" data-tilt>
+                             <div class="flex items-center justify-center gap-2">
+                                <strong>Copilot</strong>
+                                <i class="fas fa-external-link-alt text-xs opacity-50"></i>
+                            </div>
+                            <small class="block text-slate-500">(Microsoft)</small>
+                        </a>
+                        <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer" class="block p-5 text-lg border-2 border-amber-600 rounded-lg bg-white interactive-card focus-ring" data-tilt>
+                             <div class="flex items-center justify-center gap-2">
+                                <strong>Claude</strong>
+                                <i class="fas fa-external-link-alt text-xs opacity-50"></i>
+                            </div>
+                            <small class="block text-slate-500">(Anthropic)</small>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Findings Section -->
+        <section id="findings" class="py-20 md:py-24 bg-slate-50" aria-labelledby="findings-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center fade-in-up">
+                    <h2 id="findings-heading" class="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-slate-900">
+                        <i class="fas fa-search-plus text-blue-500"></i>
+                        <span>Key Observations</span>
+                    </h2>
+                    <p class="mt-4 text-xl text-slate-600">How explicit pedagogical guidance can lead to better results.</p>
+                </div>
+                <div class="mt-16 bg-white text-slate-800 p-8 md:p-10 rounded-xl shadow-lg border border-slate-200 fade-in-up flex items-center gap-8">
+                    <div class="text-5xl text-green-500">
+                        <i class="fas fa-lightbulb-on"></i>
+                    </div>
+                    <div>
+                        <p class="text-xl md:text-2xl font-semibold">Using explicit GSE descriptors in prompts appears to improve the quality and pedagogical alignment of GenAI responses.</p>
+                    </div>
+                </div>
+                <div class="mt-10 grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 interactive-card fade-in-left" data-tilt>
+                        <h4 class="font-semibold text-2xl mb-4">GSE-aligned prompts appeared to yield:</h4>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1.5"></i><span><strong>More Level-Appropriate Content:</strong> Vocabulary & grammar seemed better matched to the target proficiency.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1.5"></i><span><strong>Better Task Matching:</strong> Activities felt more relevant to the specific skill.</span></li>
+                            <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-500 mt-1.5"></i><span><strong>Increased Consistency:</strong> Outputs were generally more reliable across different AI tools.</span></li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-800 text-slate-200 p-8 rounded-xl shadow-lg interactive-card fade-in-right" data-tilt>
+                         <h4 class="font-semibold text-2xl mb-4 text-white">Example GSE Descriptor:</h4>
+                         <p class="font-mono text-base p-4 bg-slate-900 rounded-md"><strong>Skill:</strong> Speaking<br><strong>CEFR:</strong> A2 / <strong>GSE:</strong> 30<br><br>"Can give a short, basic description of their home, family and job, given some help with vocabulary."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Examples Section -->
+        <section id="examples" class="py-20 md:py-24 bg-white" aria-labelledby="examples-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center fade-in-up">
+                    <h2 id="examples-heading" class="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-slate-900">
+                        <i class="fas fa-laptop-code text-blue-500"></i>
+                        <span>Practical Application</span>
+                    </h2>
+                    <p class="mt-4 text-xl text-slate-600">Example prompts for direct use and adaptation.</p>
+                </div>
+                <div class="mt-16 space-y-10">
+                    <!-- Example 1 -->
+                    <div class="fade-in-up">
+                        <h3 class="flex items-center gap-3 font-semibold text-2xl mb-3">
+                            <i class="fas fa-book-open text-amber-600"></i>
+                            <span>Example 1: Reading Comprehension (A2)</span>
+                        </h3>
+                        <div class="prompt-block">
+                            <button class="copy-btn absolute top-3 right-3 bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold py-1 px-3 rounded-md focus-ring" data-clipboard-target="#prompt1">
+                                <i class="fas fa-copy mr-1"></i> Copy
+                            </button>
+                            <pre id="prompt1"><code>Act as an English language teaching material designer. Create a short reading text (around 100 words) suitable for an A2 level learner.
+
+The text should be based on the GSE learning objective (Reading, 34): "Can understand clearly written, straightforward instructions on how to use a piece of equipment."
+
+After the text, create 3 simple multiple-choice questions to check comprehension.</code></pre>
+                        </div>
+                    </div>
+                    <!-- Example 2 -->
+                    <div class="fade-in-up">
+                        <h3 class="flex items-center gap-3 font-semibold text-2xl mb-3">
+                            <i class="fas fa-pencil-alt text-amber-600"></i>
+                            <span>Example 2: Writing Task (B1)</span>
+                        </h3>
+                        <div class="prompt-block">
+                            <button class="copy-btn absolute top-3 right-3 bg-slate-600 hover:bg-slate-500 text-white text-xs font-bold py-1 px-3 rounded-md focus-ring" data-clipboard-target="#prompt2">
+                                <i class="fas fa-copy mr-1"></i> Copy
+                            </button>
+                            <pre id="prompt2"><code>As an expert in ELT, design a writing task for a B1 level student.
+
+The task must align with the GSE learning objective (Writing, 46): "Can write simple informal emails/letters and online postings giving news or opinions."
+
+The task is to write a short email to a friend (about 50-80 words).
+
+Provide a clear scenario for the email (e.g., inviting them to a weekend trip) and include 3 bullet points of information they must include in their email.</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Webinar Section -->
+        <section id="webinar" class="py-20 md:py-24 bg-slate-50" aria-labelledby="webinar-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 fade-in-up">
+                <div class="text-center">
+                    <h2 id="webinar-heading" class="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-slate-900">
+                        <i class="fab fa-youtube text-red-600"></i>
+                        <span>Webinar in Action</span>
+                    </h2>
+                    <p class="mt-4 text-xl text-slate-600">Watch a practical demonstration of these principles at work.</p>
+                </div>
+                <div class="mt-16 rounded-xl overflow-hidden shadow-2xl border-4 border-white" style="position: relative; padding-top: 56.25%;">
+                    <iframe 
+                        src="https://www.youtube.com/embed/eOXMtO94F3g" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+                    </iframe>
+                </div>
+                <p class="mt-6 text-center text-slate-600 text-lg">
+                    In this recorded session, I walk through the process of using GSE-aligned prompts to generate high-quality, level-appropriate ELT materials with various Generative AI tools.
+                </p>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section id="conclusion" class="py-20 md:py-24 bg-white" aria-labelledby="conclusion-heading">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center fade-in-up">
+                    <h2 id="conclusion-heading" class="flex items-center justify-center gap-3 text-4xl md:text-5xl font-bold text-slate-900">
+                        <i class="fas fa-flag-checkered text-blue-500"></i>
+                        <span>Conclusion & Impact</span>
+                    </h2>
+                    <p class="mt-4 text-xl text-slate-600">Exploring how educators can leverage AI responsibly and effectively.</p>
+                </div>
+                <div class="mt-16 grid md:grid-cols-2 gap-8">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 interactive-card fade-in-left" data-tilt>
+                        <h4 class="flex items-center gap-3 font-semibold text-2xl mb-4">
+                            <i class="fas fa-key text-amber-600"></i>
+                            <span>Key Takeaways</span>
+                        </h4>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start gap-4"><i class="fas fa-rocket text-blue-500 mt-1.5"></i><span><strong>Powerful Enhancement:</strong> GenAI tools, when guided, can be powerful aids for ELT material creation.</span></li>
+                            <li class="flex items-start gap-4"><i class="fas fa-shield-halved text-blue-500 mt-1.5"></i><span><strong>Pedagogical Soundness:</strong> Framework integration helps ensure outputs are coherent and educationally valuable.</span></li>
+                            <li class="flex items-start gap-4"><i class="fas fa-user-graduate text-blue-500 mt-1.5"></i><span><strong>Teacher Agency is Key:</strong> The educator's role in prompt design and evaluation remains critical for responsible AI integration.</span></li>
+                        </ul>
+                    </div>
+                     <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 interactive-card fade-in-right" data-tilt>
+                        <h4 class="flex items-center gap-3 font-semibold text-2xl mb-4">
+                            <i class="fas fa-binoculars text-amber-600"></i>
+                            <span>Future Outlook</span>
+                        </h4>
+                        <p class="text-lg text-slate-600 mb-4">The future may lie in developing more intuitive interfaces and AI training that inherently understands pedagogical frameworks. This could lower the barrier to entry for educators and enable even more dynamic, personalized learning experiences.</p>
+                        <p class="text-lg font-semibold text-blue-800 p-4 bg-blue-50 rounded-lg">This systematic approach can help empower educators to move from being simple users of AI to becoming architects of AI-driven learning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="connect" class="bg-slate-800 text-slate-300 text-center relative">
+        <div id="particles-js" class="absolute inset-0"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+            <h3 class="text-4xl font-bold text-white">Connect to Collaborate</h3>
+            <p class="mt-3 text-lg">ELT and Edtech Practitioner</p>
+            <div class="mt-10 flex justify-center items-center gap-5 md:gap-8 flex-wrap">
+                <a href="https://www.facebook.com/mrfajarudinakbar" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-lg bg-slate-700 px-5 py-3 rounded-lg hover:bg-blue-600 transition-all transform hover:scale-105 focus-ring">
+                    <i class="fab fa-facebook-f"></i><span>Facebook</span>
+                </a>
+                <a href="https://www.linkedin.com/in/fajarudinakbar" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-lg bg-slate-700 px-5 py-3 rounded-lg hover:bg-blue-700 transition-all transform hover:scale-105 focus-ring">
+                    <i class="fab fa-linkedin-in"></i><span>LinkedIn</span>
+                </a>
+                <a href="https://www.instagram.com/fajarudinakbar" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-lg bg-slate-700 px-5 py-3 rounded-lg hover:bg-pink-600 transition-all transform hover:scale-105 focus-ring">
+                    <i class="fab fa-instagram"></i><span>Instagram</span>
+                </a>
+                <a href="https://www.moocguru.com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-lg bg-slate-700 px-5 py-3 rounded-lg hover:bg-green-600 transition-all transform hover:scale-105 focus-ring">
+                    <i class="fas fa-link"></i><span>moocguru.com</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla Tilt JS for 3D hover effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+    <!-- Particles.js for footer background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile menu toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            mobileMenu.addEventListener('click', (e) => {
+                if (e.target.tagName === 'A') {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+            
+            // --- Intersection Observer for animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        // Animate counter if it's a counter element
+                        if (entry.target.classList.contains('counter')) {
+                            animateCounter(entry.target);
+                        }
+                        observer.unobserve(entry.target); // Animate only once
+                    }
+                });
+            }, {
+                threshold: 0.2 // Trigger when 20% of the element is visible
+            });
+
+            const elementsToAnimate = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .counter');
+            elementsToAnimate.forEach(el => observer.observe(el));
+
+            // --- Counter Animation Function ---
+            function animateCounter(element) {
+                const target = +element.getAttribute('data-target');
+                const duration = 1500; // 1.5 seconds
+                const stepTime = Math.abs(Math.floor(duration / target));
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += 1;
+                    if (target > 1000) { // For large numbers, increment faster
+                         current += Math.floor(target / 100);
+                    }
+                    if (current >= target) {
+                        clearInterval(timer);
+                        current = target;
+                    }
+                    element.innerText = current.toLocaleString(); // Add commas for thousands
+                }, stepTime < 1 ? 1 : stepTime);
+            }
+
+            // --- Clipboard copy functionality ---
+            const copyButtons = document.querySelectorAll('.copy-btn');
+            copyButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.dataset.clipboardTarget;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const textArea = document.createElement('textarea');
+                        textArea.value = targetElement.innerText;
+                        textArea.style.position = 'fixed';
+                        textArea.style.top = '-9999px';
+                        document.body.appendChild(textArea);
+                        textArea.select();
+                        try {
+                            document.execCommand('copy');
+                            const originalText = button.innerHTML;
+                            button.innerHTML = '<i class="fas fa-check mr-1"></i> Copied!';
+                            setTimeout(() => { button.innerHTML = originalText; }, 2000);
+                        } catch (err) {
+                            console.error('Failed to copy text: ', err);
+                        }
+                        document.body.removeChild(textArea);
+                    }
+                });
+            });
+
+            // --- Initialize Vanilla Tilt ---
+            VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+                max: 10,
+                speed: 400,
+                glare: true,
+                "max-glare": 0.2
+            });
+
+            // --- Initialize Particles.js ---
+            particlesJS('particles-js', {
+              "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#ffffff" },
+                "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" } },
+                "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                "size": { "value": 3, "random": true, "anim": { "enable": false } },
+                "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+              },
+              "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+                "modes": { "repulse": { "distance": 100, "duration": 0.4 }, "push": { "particles_nb": 4 } }
+              },
+              "retina_detect": true
+            });
+        });
+    </script>
+
+</body>
+</html>
