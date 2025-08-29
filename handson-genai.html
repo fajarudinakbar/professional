@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hands-On with Generative AI: Personalizing ELT Materials</title>
+    
+    <!-- Open Graph / Facebook & GitHub Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fajarudinakbar.github.io/hands-on-genai/">
+    <meta property="og:title" content="Hands-On with Generative AI: Personalizing ELT Materials">
+    <meta property="og:description" content="A practical guide by Fajarudin Akbar on personalizing ELT materials for different learners and contexts.">
+    <meta property="og:image" content="https://img.youtube.com/vi/eOXMtO94F3g/maxresdefault.jpg">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://fajarudinakbar.github.io/hands-on-generative-ai/">
+    <meta name="twitter:title" content="Hands-On with Generative AI: Personalizing ELT Materials">
+    <meta name="twitter:description" content="A practical guide by Fajarudin Akbar on personalizing ELT materials for different learners and contexts.">
+    <meta name="twitter:image" content="https://img.youtube.com/vi/eOXMtO94F3g/maxresdefault.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        :root {
+            --primary-color: #312e81; /* indigo-900 */
+            --secondary-color: #047857; /* emerald-700 */
+            --accent-color: #f97316;  /* orange-600 */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at top left, rgba(249, 115, 22, 0.05), transparent 40%),
+                              radial-gradient(circle at bottom right, rgba(4, 120, 87, 0.07), transparent 50%);
+            z-index: -1;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card {
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-top: 4px solid var(--primary-color);
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        .card h2 { color: var(--primary-color); }
+        .card .icon-bg { background-color: #e0e7ff; /* indigo-100 */ }
+        .card .icon-svg { color: var(--primary-color); }
+
+        .checklist-item {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .checklist-item:hover {
+            border-color: var(--accent-color);
+            background-color: #fff7ed; /* orange-50 */
+            transform: scale(1.02);
+        }
+        .checklist-item input { display: none; }
+        .checklist-item .checkbox-icon {
+            width: 1.25em;
+            height: 1.25em;
+            border: 2px solid #94a3b8;
+            border-radius: 0.25rem;
+            margin-right: 0.75rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .checklist-item .checkbox-icon svg {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: all 0.2s ease;
+        }
+        .checklist-item input:checked + .checkbox-icon {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        .checklist-item input:checked + .checkbox-icon svg {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .checklist-item input:checked ~ span {
+            text-decoration: line-through;
+            color: #64748b;
+        }
+
+        .text-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            background-color: rgba(239, 246, 255, 0.8); /* blue-50 with opacity */
+            padding: 2px 6px;
+            border-radius: 6px;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            text-decoration: none;
+        }
+        .text-link:hover {
+            background-color: #dbeafe; /* blue-100 */
+            color: #1e3a8a; /* blue-900 */
+            box-shadow: 0 0 10px rgba(67, 56, 202, 0.1);
+        }
+        
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            transition: opacity 0.3s, transform 0.3s;
+            opacity: 0;
+            transform: translateY(20px);
+            background-color: var(--primary-color);
+        }
+        #scrollTopBtn:hover { background-color: #3730a3; }
+        #scrollTopBtn.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Vertical Stepper Styles */
+        .step {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 2rem;
+        }
+        .step:last-child {
+            padding-bottom: 0;
+        }
+        .step-number {
+            position: absolute;
+            left: 0;
+            top: -0.25rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: #e2e8f0; /* slate-200 */
+            color: #64748b; /* slate-500 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+        }
+        .step-line {
+            position: absolute;
+            left: 1.1875rem; 
+            top: 2.5rem;
+            bottom: 0;
+            width: 2px;
+            background-color: #e2e8f0; /* slate-200 */
+            transition: all 0.3s ease;
+        }
+        .step:last-child .step-line {
+            display: none;
+        }
+        .step-header {
+            cursor: pointer;
+            padding: 0.5rem;
+            margin: -0.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .step-header:hover {
+            background-color: #f1f5f9; /* slate-100 */
+        }
+        .step-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), margin-top 0.5s ease;
+            margin-top: 0;
+        }
+        .step.active .step-number {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        .step.active .step-line {
+            background-color: var(--accent-color);
+        }
+        .step.active .step-content {
+            max-height: 500px;
+            margin-top: 1rem;
+        }
+        .step.active .step-arrow {
+            transform: rotate(180deg);
+        }
+        .step-arrow {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Responsive Video Container */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.75rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="text-slate-700">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+
+        <!-- Header Section -->
+        <header class="text-center mb-16 animate__animated animate__fadeInDown">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-slate-800 tracking-tight gradient-text">Hands-On with Generative AI</h1>
+            <p class="text-xl md:text-2xl lg:text-3xl text-gray-600 mt-6 mx-auto">A practical guide to personalizing ELT materials for different learners and contexts.</p>
+        </header>
+
+        <main class="space-y-16 max-w-5xl mx-auto">
+
+            <!-- Why Personalize with AI? -->
+            <div class="card p-8 rounded-2xl shadow-lg">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 flex items-center">
+                    <span class="icon-bg flex items-center justify-center h-16 w-16 rounded-2xl mr-5 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" /></svg>
+                    </span>
+                    Why Personalize with AI?
+                </h2>
+                <div class="space-y-4 text-xl">
+                    <div class="flex items-start bg-indigo-50 p-5 rounded-xl border border-indigo-200">
+                        <span class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-600 font-bold mr-4 mt-1">✓</span>
+                        <p><strong>Clear Goals:</strong> Create measurable, learner-specific materials.</p>
+                    </div>
+                    <div class="flex items-start bg-emerald-50 p-5 rounded-xl border border-emerald-200">
+                        <span class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-emerald-100 text-emerald-600 font-bold mr-4 mt-1">✓</span>
+                        <p><strong>Adaptable Content:</strong> Adapt for diverse learning contexts and proficiency levels.</p>
+                    </div>
+                    <div class="flex items-start bg-orange-50 p-5 rounded-xl border border-orange-200">
+                        <span class="flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-full bg-orange-100 text-orange-600 font-bold mr-4 mt-1">✓</span>
+                        <p><strong>Increased Efficiency:</strong> Significantly boost efficiency and spark innovation in lesson planning.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Foundation: The Art of Prompting -->
+            <div class="card p-8 rounded-2xl shadow-lg">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 flex items-center">
+                    <span class="icon-bg flex items-center justify-center h-16 w-16 rounded-2xl mr-5 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" /></svg>
+                    </span>
+                    Foundation: The Art of Prompting
+                </h2>
+                <p class="text-xl mb-6">Master communicating your needs to AI. Clearly describe the following elements for the best results:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
+                    <div class="bg-gradient-to-br from-indigo-100 to-indigo-200 text-indigo-800 font-semibold rounded-xl p-4 shadow-sm flex flex-col items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>
+                        <span class="text-2xl">Task</span>
+                    </div>
+                    <div class="bg-gradient-to-br from-emerald-100 to-emerald-200 text-emerald-800 font-semibold rounded-xl p-4 shadow-sm flex flex-col items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                        <span class="text-2xl">Context</span>
+                    </div>
+                    <div class="bg-gradient-to-br from-orange-100 to-orange-200 text-orange-800 font-semibold rounded-xl p-4 shadow-sm flex flex-col items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mb-2 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span class="text-2xl">Outcome</span>
+                    </div>
+                </div>
+                <p class="text-base text-gray-500 mt-6 text-center">Inspired by Google's <a href="https://artsandculture.google.com/experiment/say-what-you-see/jwG3m7wQShZngw?hl=en" target="_blank" class="text-link">"Say What You See"</a> experiment.</p>
+            </div>
+            
+            <!-- A Practical Workflow for Personalization -->
+            <div class="card p-8 rounded-2xl shadow-lg">
+                <h2 class="text-4xl md:text-5xl font-bold mb-8 flex items-center">
+                    <span class="icon-bg flex items-center justify-center h-16 w-16 rounded-2xl mr-5 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
+                    </span>
+                    A Practical Workflow
+                </h2>
+                <div id="stepper-container">
+                    <!-- Step 1 -->
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-semibold text-slate-800 text-2xl lg:text-3xl">Define Learner Needs</h3>
+                            <span class="step-arrow text-slate-500 font-bold text-2xl">↓</span>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p>Use frameworks to define learning objectives. Specify the learner profile, target skill, and proficiency level.</p>
+                            <p class="mt-3 font-medium"><strong>Key Tool:</strong> <a href="https://www.english.com/gse/teacher-toolkit/user/lo" target="_blank" class="text-link">GSE Teacher Toolkit</a> to align materials with GSE/CEFR standards.</p>
+                        </div>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-semibold text-slate-800 text-2xl lg:text-3xl">Choose Your AI Co-Pilot</h3>
+                            <span class="step-arrow text-slate-500 font-bold text-2xl">↓</span>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p>Select a powerful Generative AI model and assign a specific role for your pedagogical goal.</p>
+                            <ul class="list-disc list-inside mt-3 space-y-1">
+                                <li><strong><a href="https://chatgpt.com/" target="_blank" class="text-link">ChatGPT</a>:</strong> The Content Creator for lessons, dialogues, and scripts.</li>
+                                <li><strong><a href="https://gemini.google.com/" target="_blank" class="text-link">Gemini</a>:</strong> The App Developer, using the Canvas feature to build interactive apps.</li>
+                                <li><strong><a href="https://copilot.microsoft.com/" target="_blank" class="text-link">Copilot</a>:</strong> The Practice Partner for speaking scenarios.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-semibold text-slate-800 text-2xl lg:text-3xl">Generate Diverse Media</h3>
+                            <span class="step-arrow text-slate-500 font-bold text-2xl">↓</span>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p>Go beyond text. Create engaging, multimodal content to cater to different learning styles.</p>
+                            <p class="mt-3 font-medium"><strong>Key Platform:</strong> <a href="httpsaistudio.google.com/" target="_blank" class="text-link">Google AI Studio</a></p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-slate-100 text-slate-800 text-lg font-semibold px-3 py-1 rounded-full">Images</span>
+                                <span class="bg-slate-100 text-slate-800 text-lg font-semibold px-3 py-1 rounded-full">Speech</span>
+                                <span class="bg-slate-100 text-slate-800 text-lg font-semibold px-3 py-1 rounded-full">Video</span>
+                                <span class="bg-slate-100 text-slate-800 text-lg font-semibold px-3 py-1 rounded-full">Music</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-line"></div>
+                        <div class="step-header flex justify-between items-center">
+                            <h3 class="font-semibold text-slate-800 text-2xl lg:text-3xl">Use Specialized ELT Tools</h3>
+                            <span class="step-arrow text-slate-500 font-bold text-2xl">↓</span>
+                        </div>
+                        <div class="step-content text-xl">
+                            <p>Leverage platforms designed specifically for education to enhance your teaching workflow.</p>
+                            <p class="mt-3 font-medium"><strong>Platform Example:</strong> <a href="https://www.trinitycollege.com/qualifications/english-language/notelab-english" target="_blank" class="text-link">NoteLab English</a>, a dedicated teacher tool from Trinity College.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Responsible-Use Checklist -->
+            <div class="card p-8 rounded-2xl shadow-lg">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 flex items-center">
+                     <span class="icon-bg flex items-center justify-center h-16 w-16 rounded-2xl mr-5 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                    </span>
+                    Responsible-Use Checklist
+                </h2>
+                <p class="text-xl text-gray-500 mb-5">Before using AI-generated content with learners, confirm the following:</p>
+                <div class="space-y-3">
+                    <label class="checklist-item flex items-center text-xl"><input type="checkbox"><div class="checkbox-icon flex-shrink-0"><svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><span class="select-none">The language level is appropriate.</span></label>
+                    <label class="checklist-item flex items-center text-xl"><input type="checkbox"><div class="checkbox-icon flex-shrink-0"><svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><span class="select-none">The content is free of bias, stereotypes, and factual errors.</span></label>
+                    <label class="checklist-item flex items-center text-xl"><input type="checkbox"><div class="checkbox-icon flex-shrink-0"><svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><span class="select-none">I have reviewed and edited the content.</span></label>
+                    <label class="checklist-item flex items-center text-xl"><input type="checkbox"><div class="checkbox-icon flex-shrink-0"><svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><span class="select-none">I am using AI as an assistant, not a replacement for my professional judgment.</span></label>
+                    <label class="checklist-item flex items-center text-xl"><input type="checkbox"><div class="checkbox-icon flex-shrink-0"><svg class="w-4 h-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div><span class="select-none">My learners understand what AI is and how it works at an age-appropriate level.</span></label>
+                </div>
+            </div>
+            
+            <!-- Talk to my AI Agent -->
+            <div class="card bg-gradient-to-br from-indigo-900 to-emerald-900 text-white p-8 rounded-2xl shadow-xl text-center overflow-hidden relative">
+                 <div class="absolute -top-10 -right-10 w-32 h-32 bg-white/5 rounded-full"></div>
+                 <div class="absolute -bottom-16 -left-10 w-40 h-40 bg-white/5 rounded-full"></div>
+                <h2 class="text-4xl md:text-5xl font-bold mb-3 relative z-10" style="color: white;">Talk to an AI Agent</h2>
+                <p class="mb-6 relative z-10 text-xl lg:text-2xl text-indigo-200">Get personalized ideas, practice prompting, and explore more ELT tools with a custom chatbot designed for educators.</p>
+                <a href="https://poe.com/FajarudinAkbar.ELT" target="_blank" class="inline-block bg-orange-600 text-white font-bold py-4 px-10 rounded-full hover:bg-orange-700 transition-all duration-300 transform hover:scale-105 shadow-lg relative z-10 text-xl">
+                    Start Chatting
+                </a>
+            </div>
+
+            <!-- See It in Action -->
+            <div class="card p-8 rounded-2xl shadow-lg">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 flex items-center">
+                    <span class="icon-bg flex items-center justify-center h-16 w-16 rounded-2xl mr-5 shadow-inner">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg h-9 w-9" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    </span>
+                    See It in Action
+                </h2>
+                <p class="mb-4 text-xl">Watch the recorded webinar to see a live demonstration of these principles and tools being used to create personalized ELT materials.</p>
+                <div class="video-container shadow-lg">
+                    <iframe 
+                        src="https://www.youtube.com/embed/eOXMtO94F3g" 
+                        title="YouTube video player" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="text-center mt-20 pt-10 border-t border-gray-200">
+            <p class="font-bold text-2xl text-slate-700">Presented by Fajarudin Akbar</p>
+            <p class="text-lg text-gray-500 mt-1 mx-auto">GSE Ambassador | IELTA Indonesia Ambassador | EdTech Practitioner | TEFL/TESOL Educator</p>
+            
+            <!-- Social Media Links -->
+            <div class="flex justify-center items-center space-x-6 mt-6">
+                <a href="https://facebook.com/mrfajarudinakbar" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-600 transition-colors transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                    <span class="sr-only">Facebook</span>
+                </a>
+                <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-blue-700 transition-colors transform hover:scale-110">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    <span class="sr-only">LinkedIn</span>
+                </a>
+                <a href="https://fajarudinakbar.github.io/professional/" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-gray-800 transition-colors transform hover:scale-110">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.536a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                    </svg>
+                    <span class="sr-only">Portfolio</span>
+                </a>
+            </div>
+        </footer>
+
+    </div>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold p-3 rounded-full shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- Vertical Stepper Functionality ---
+            const stepperContainer = document.getElementById('stepper-container');
+            if (stepperContainer) {
+                stepperContainer.addEventListener('click', function (event) {
+                    const header = event.target.closest('.step-header');
+                    if (!header) return;
+
+                    const step = header.parentElement;
+                    const allSteps = stepperContainer.querySelectorAll('.step');
+                    const wasActive = step.classList.contains('active');
+
+                    allSteps.forEach(s => {
+                        if (s !== step) {
+                            s.classList.remove('active');
+                        }
+                    });
+
+                    if (!wasActive) {
+                        step.classList.add('active');
+                    } else {
+                        step.classList.remove('active');
+                    }
+                });
+            }
+
+            // --- Scroll to Top Functionality ---
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            if (scrollTopBtn) {
+                window.onscroll = function() {
+                    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                        scrollTopBtn.classList.add('show');
+                    } else {
+                        scrollTopBtn.classList.remove('show');
+                    }
+                };
+                scrollTopBtn.addEventListener('click', function() {
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            }
+            
+            // --- Animate on Scroll (Intersection Observer) ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                        entry.target.classList.remove('opacity-0');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.card, footer').forEach(el => {
+                el.classList.add('opacity-0');
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
