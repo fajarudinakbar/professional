@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fajarudin Akbar | Guru Bahasa Inggris, Pendidik TEFL/TESOL, Praktisi Teknologi Pendidikan</title>
+
+    <!-- META TAGS UNTUK THUMBNAIL SAAT SHARE URL (OPEN GRAPH & TWITTER CARD) -->
+    <meta property="og:title" content="Fajarudin Akbar - Portofolio Profesional">
+    <meta property="og:site_name" content="Portofolio Fajarudin Akbar">
+    <meta property="og:description" content="Seorang Guru Bahasa Inggris, Pendidik TEFL/TESOL, dan Praktisi Teknologi Pendidikan.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+    <meta property="og:image:alt" content="Foto profesional Fajarudin Akbar">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fajarudinakbar.github.io/professional/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fajarudin Akbar - Portofolio Profesional">
+    <meta name="twitter:description" content="Seorang Guru Bahasa Inggris, Pendidik TEFL/TESOL, dan Praktisi Teknologi Pendidikan.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+    <!-- AKHIR DARI META TAGS -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F3F4F6; /* Light Gray */
+            color: #1F2937; /* Charcoal */
+        }
+        h1, h2, h3, h4 {
+            color: #1E3A8A; /* Navy Blue */
+        }
+        .bg-primary { background-color: #F3F4F6; }
+        .bg-secondary { background-color: #FFFFFF; }
+        .bg-accent { background-color: #0D9488; } /* Teal */
+        .text-accent { color: #0D9488; }
+        .border-accent { border-color: #0D9488; }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #0D9488; /* Teal */
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        .tab-active {
+            color: #0D9488;
+            border-bottom: 2px solid #0D9488;
+        }
+        .tab-inactive {
+            color: #6B7280;
+            border-bottom: 2px solid transparent;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+            border: 1px solid #E5E7EB;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #0D9488;
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .project-link {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .card:hover .project-link {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .btn-yellow {
+            background-color: #FACC15;
+            color: #1F2937;
+        }
+        .btn-yellow:hover {
+            background-color: #FBBF24;
+        }
+    </style>
+</head>
+<body class="bg-primary">
+
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold tracking-tight" style="color: #1E3A8A;">Fajarudin Akbar</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#journey" class="nav-link text-gray-700 hover:text-accent px-3 py-2 text-sm font-medium">Journey</a>
+                        <a href="#expertise" class="nav-link text-gray-700 hover:text-accent px-3 py-2 text-sm font-medium">Expertise</a>
+                        <a href="#projects" class="nav-link text-gray-700 hover:text-accent px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#impact" class="nav-link text-gray-700 hover:text-accent px-3 py-2 text-sm font-medium">Impact</a>
+                        <a href="#contact" class="btn-yellow px-5 py-2 rounded-full text-sm font-medium transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                        <span class="sr-only">Buka menu utama</span>
+                        <div id="hamburger-icon" class="space-y-1.5">
+                            <span class="block w-6 h-0.5 bg-gray-700 transition-transform duration-300"></span>
+                            <span class="block w-6 h-0.5 bg-gray-700 transition-opacity duration-300"></span>
+                            <span class="block w-6 h-0.5 bg-gray-700 transition-transform duration-300"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Menu Mobile -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#journey" class="nav-link-mobile text-gray-700 hover:bg-gray-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Journey</a>
+                <a href="#expertise" class="nav-link-mobile text-gray-700 hover:bg-gray-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Expertise</a>
+                <a href="#projects" class="nav-link-mobile text-gray-700 hover:bg-gray-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#impact" class="nav-link-mobile text-gray-700 hover:bg-gray-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Impact</a>
+                <a href="#contact" class="nav-link-mobile btn-yellow block px-3 py-2 rounded-md text-base font-medium text-center">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Bagian Perkenalan (Hero) -->
+        <section id="home" class="py-24 md:py-40">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" 
+                     alt="Foto profil Fajarudin Akbar" 
+                     class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 border-4 border-white shadow-xl">
+                <h1 class="text-5xl font-extrabold sm:text-6xl md:text-7xl tracking-tighter">Fajarudin Akbar</h1>
+                <p class="mt-4 max-w-4xl mx-auto text-lg md:text-xl text-gray-700">English Language Teacher&nbsp;•&nbsp;TEFL/TESOL Educator&nbsp;•&nbsp;EdTech Practitioner</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-600">Merintis penggabungan AI dan Open Educational Resources untuk menciptakan pengalaman belajar yang dinamis, berpusat pada siswa, dan dapat diakses siapa saja di seluruh dunia.</p>
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <div class="card bg-white p-6 rounded-xl">
+                        <p class="text-5xl font-bold text-accent">7+</p>
+                        <p class="mt-2 text-lg font-medium text-gray-700">Years of Experience</p>
+                    </div>
+                    <div class="card bg-white p-6 rounded-xl">
+                        <p class="text-5xl font-bold text-accent">300+</p>
+                        <p class="mt-2 text-lg font-medium text-gray-700">CPD Courses</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Perjalanan -->
+        <section id="journey" class="py-24 bg-secondary fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">The Educator's Journey</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Sebuah cerita tentang perkembangan profesional, dari mengajar langsung di kelas hingga menciptakan dampak pendidikan yang lebih luas.</p>
+                </div>
+                <div class="mt-20 max-w-md mx-auto md:max-w-4xl">
+                    <div class="relative grid gap-y-12 md:grid-cols-2 md:gap-x-12">
+                        <div class="absolute inset-0 hidden md:flex justify-center"><div class="w-0.5 h-full" style="background-color: #CCFBF1;"></div></div>
+                        <div class="absolute inset-0 flex md:hidden"><div class="w-0.5 h-full ml-3.5" style="background-color: #CCFBF1;"></div></div>
+                        <div class="relative md:text-right">
+                             <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-auto md:right-[-25px] ring-4 ring-white"></div>
+                             <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
+                                 <h3 class="font-bold text-lg">Foundational Roles</h3>
+                                 <p class="mt-2 text-sm text-gray-600">Memulai karier sebagai Guru Paruh Waktu dan Tutor Bahasa Inggris, mengasah keterampilan dasar mengajar dan membangun fondasi yang kuat dalam instruksi di kelas.</p>
+                             </div>
+                        </div>
+                        <div class="hidden md:block"></div>
+                        <div class="hidden md:block"></div>
+                        <div class="relative">
+                            <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-[-23px] ring-4 ring-white"></div>
+                            <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
+                                <h3 class="font-bold text-lg">Academic Leadership (Past Role)</h3>
+                                <p class="mt-2 text-sm text-gray-600">Berkembang ke peran kepemimpinan sebagai Kepala Divisi Akademik, beralih dari mengajar siswa menjadi perancang kurikulum. Pengalaman ini memberikan wawasan mendalam tentang tantangan sistem pendidikan.</p>
+                            </div>
+                        </div>
+                        <div class="relative md:text-right">
+                             <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-auto md:right-[-25px] ring-4 ring-white"></div>
+                             <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
+                                 <h3 class="font-bold text-lg">Global Ambassador</h3>
+                                 <p class="mt-2 text-sm text-gray-600">Memperluas pengaruh dengan menjadi duta untuk organisasi global seperti IELTA Indonesia, HundrEDorg, dan Pearson (GSE), dengan fokus pada pembuatan program pendidikan untuk guru dan pelajar di seluruh dunia.</p>
+                             </div>
+                        </div>
+                        <div class="hidden md:block"></div>
+                        <div class="hidden md:block"></div>
+                        <div class="relative">
+                            <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-[-23px] ring-4 ring-white"></div>
+                            <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
+                                <h3 class="font-bold text-lg">Independent EdTech Consultant & Founder</h3>
+                                <p class="mt-2 text-sm text-gray-600">Kini bekerja secara mandiri, memanfaatkan pengalaman luas untuk memberikan pengajaran ahli dan konsultasi Teknologi Pendidikan. Terus berinovasi sebagai pendiri platform MOOC Guru.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Keahlian -->
+        <section id="expertise" class="py-24 fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">Core Pillars of Practice</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Keahlian saya dibangun di atas tiga pilar yang saling terhubung dan menciptakan "innovation flywheel"—sebuah siklus untuk mengidentifikasi masalah, mengembangkan solusi berbasis teknologi, dan berbagi hasilnya.</p>
+                </div>
+                <div class="mt-12">
+                    <div class="border-b border-gray-200">
+                        <nav class="-mb-px flex justify-center space-x-4 md:space-x-8" aria-label="Tabs">
+                            <button id="tab-btn-1" class="tab-btn tab-active whitespace-nowrap py-4 px-1 font-medium text-base transition-colors duration-300">Language Teaching</button>
+                            <button id="tab-btn-2" class="tab-btn tab-inactive whitespace-nowrap py-4 px-1 font-medium text-base transition-colors duration-300">Educator Empowerment</button>
+                            <button id="tab-btn-3" class="tab-btn tab-inactive whitespace-nowrap py-4 px-1 font-medium text-base transition-colors duration-300">EdTech Innovation</button>
+                        </nav>
+                    </div>
+                    <div id="tab-content" class="mt-8">
+                        <div id="tab-panel-1" class="tab-panel">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold">The Art of Pedagogy in Practice</h3>
+                                    <p class="mt-4 text-gray-600 leading-relaxed">Filosofi saya sangat berpusat pada siswa, dengan fokus menciptakan pengalaman belajar yang dinamis, interaktif, dan personal. Saya ahli dalam konteks penting seperti Bahasa Inggris untuk Bisnis dan Akademik, di mana pelajar membutuhkan keterampilan bahasa yang spesifik dan relevan dengan dunia nyata.</p>
+                                    <p class="mt-4 text-gray-600 leading-relaxed">Elemen kunci dari cara mengajar saya adalah penggunaan Global Scale of English (GSE). Saya menggunakannya sebagai "cermin" untuk merefleksikan pengajaran saya, yang mengarah pada perencanaan pelajaran yang terarah di mana setiap aktivitas disesuaikan dengan tingkat kemahiran spesifik siswa. Pendekatan berbasis data ini memungkinkan intervensi yang tepat sasaran dan mempercepat kemajuan siswa.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl border border-gray-200">
+                                    <h4 class="font-bold text-lg text-accent">Case Study: Personalized Intervention</h4>
+                                    <p class="mt-2 text-gray-600"><strong>Profil Siswa:</strong> Seorang siswa Bahasa Inggris Bisnis dengan keterampilan yang tidak merata—kemampuan berbicara di level GSE 55 dan menulis di GSE 45.</p>
+                                    <p class="mt-2 text-gray-600"><strong>Pendekatan:</strong> Alih-alih metode "satu untuk semua", saya menggunakan pertanyaan wawancara tiruan yang kompleks untuk menantang kemampuan berbicara, sambil memberikan kerangka kalimat terstruktur untuk mendukung kemampuan menulis.</p>
+                                    <p class="mt-2 text-gray-600"><strong>Hasil:</strong> Intervensi yang tepat sasaran ini menghasilkan kemajuan yang lebih cepat dan percaya diri di kedua keterampilan, menunjukkan kekuatan metode pengajaran yang presisi dan berbasis data.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-panel-2" class="tab-panel hidden">
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold">A Leader in TEFL/TESOL</h3>
+                                    <p class="mt-4 text-gray-600 leading-relaxed">Saya memperluas dampak saya lebih dari sekadar untuk siswa saya sendiri dengan secara aktif memberdayakan sesama pendidik. Pengalaman saya dalam kepemimpinan akademik memberikan wawasan mendalam tentang desain kurikulum dan bimbingan yang efektif, yang sekarang saya terapkan dalam pekerjaan konsultasi mandiri saya.</p>
+                                    <p class="mt-4 text-gray-600 leading-relaxed">Saya sangat berinvestasi dalam menumbuhkan komunitas pendidikan. Saya mengembangkan dan memimpin sesi pengembangan profesional tentang praktik pengajaran inovatif dan integrasi teknologi pendidikan yang efektif. Melalui tulisan dan lokakarya, saya berbagi kerangka kerja praktis dan memfasilitasi bimbingan sesama guru, dengan tujuan membekali rekan-rekan saya dengan alat dan metodologi modern untuk meningkatkan praktik seluruh komunitas.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl border border-gray-200">
+                                     <h4 class="font-bold text-lg text-accent">Community Leadership Highlights</h4>
+                                     <ul class="mt-2 space-y-2 text-gray-600 list-disc list-inside">
+                                         <li>Mengembangkan dan memimpin program pengembangan profesional guru yang inovatif.</li>
+                                         <li>Menulis artikel untuk platform pendidikan terkemuka tentang penggunaan kerangka kerja untuk lokakarya kolaboratif.</li>
+                                         <li>Menjadi panelis dan pembicara aktif di forum seperti webinar dan konferensi British Council, Cambridge, dan Trinity College London.</li>
+                                         <li>Memfasilitasi komunitas guru dengan minat pada Open Educational Resources (OER).</li>
+                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-panel-3" class="tab-panel hidden">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-bold">The Vanguard of EdTech</h3>
+                                <p class="mt-4 text-gray-600 leading-relaxed">Saya berdiri di garis depan teknologi pendidikan, bukan sebagai pengguna pasif, tetapi sebagai praktisi yang kritis dan kreatif. Pendekatan saya adalah memanfaatkan teknologi untuk secara aktif membentuk dan meningkatkan proses belajar, menggunakan alat AI untuk mengolah dan menciptakan, bukan hanya untuk mencari informasi.</p>
+                                <p class="mt-4 text-gray-600 leading-relaxed">Portofolio proyek Teknologi Pendidikan saya memberikan bukti nyata kemampuan saya untuk mengidentifikasi masalah dalam pengajaran dan menerapkan solusi teknologi. Jelajahi beberapa proyek utama saya di bawah ini.</p>
+                                <a href="#projects" class="mt-6 inline-block btn-yellow px-6 py-3 rounded-full font-medium transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">View My EdTech Projects</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Proyek -->
+        <section id="projects" class="py-24 bg-secondary fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">Key Projects & Initiatives</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Mulai dari mendirikan platform, penelitian akademik, hingga aplikasi praktis, proyek-proyek ini menunjukkan komitmen saya untuk memecahkan tantangan pengajaran di dunia nyata dengan teknologi inovatif.</p>
+                </div>
+                <div id="project-grid" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <a href="https://moocguru.com" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">Founder: MOOC Guru Platform</h3>
+                        <p class="mt-2 text-gray-600">Menciptakan platform online komprehensif yang menyediakan Open CPD, kursus Bahasa Inggris gratis, dan sumber daya pengembangan profesional untuk komunitas global pendidik dan pelajar.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
+                    </a>
+                    <a href="https://poe.com/FajarudinAkbar.ELT" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">AI Assistants on Poe</h3>
+                        <p class="mt-2 text-gray-600">Mengembangkan serangkaian alat AI fungsional, termasuk pembuat lembar kerja yang selaras dengan GSE dan asisten virtual, untuk memberikan dukungan praktis bagi guru dan siswa.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
+                    </a>
+                    <a href="https://fajarudinakbar.online/static-to-app" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">Static Worksheets to Interactive Apps</h3>
+                        <p class="mt-2 text-gray-600">Mengubah materi ajar tradisional menjadi pengalaman belajar yang dinamis dan berpusat pada siswa menggunakan AI. Disorot sebagai "standout project" oleh edCommunity.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
+                    </a>
+                     <a href="https://fajarudinakbar.online/genai-and-gse" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">Guiding Generative AI with GSE</h3>
+                        <p class="mt-2 text-gray-600">Panduan interaktif tentang penggunaan kerangka GSE untuk membuat perintah (prompt) yang efektif untuk AI generatif dalam perencanaan pelajaran.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
+                    </a>
+                    <a href="https://fajarudinakbar.online/fyp-framework" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">The FYP Framework</h3>
+                        <p class="mt-2 text-gray-600">Kerangka kerja praktis bagi para pendidik untuk Menemukan (Find), Personalisasi (Personalize), dan Merencanakan (Plan) pelajaran menggunakan alat Teknologi Pendidikan modern dan strategi pengajaran.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Project →</span>
+                    </a>
+                    <a href="https://fajarudinakbar.online/handson-genai" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">Hands-On with Generative AI</h3>
+                        <p class="mt-2 text-gray-600">Sebuah kerangka kerja praktis dan panduan langsung bagi para pendidik untuk memanfaatkan AI generatif dalam praktik mengajar mereka, dipresentasikan untuk Trinity College London.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Framework →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Dampak -->
+        <section id="impact" class="py-24 fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">Evidence of Impact & Recognition</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Pendekatan saya didukung oleh pengakuan industri dan testimoni dari para pemimpin global di bidang pendidikan dan teknologi.</p>
+                </div>
+                <div class="mt-12 max-w-3xl mx-auto space-y-6">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <p class="text-gray-600 italic">"Seorang <span class="font-bold text-accent">active member</span>... menata ulang apa yang mungkin dilakukan di dalam kelas dengan menggunakan AI dan alat interaktif untuk menciptakan pengalaman belajar yang dinamis dan berpusat pada siswa."</p>
+                        <p class="mt-2 text-right font-medium text-gray-800">- edCommunity Spotlight</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200">
+                        <p class="text-gray-600 italic">"Seorang <span class="font-bold text-accent">exceptional educator</span> dan seorang guru bahasa Inggris akademik dan bisnis yang inspiratif."</p>
+                        <p class="mt-2 text-right font-medium text-gray-800">- Cathoven AI TechTeach Innovator Spotlight</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Bagian Pengakuan Global -->
+        <section id="recognition" class="py-24 bg-secondary fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">Global Recognition & Contributions</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Karya saya diakui oleh beberapa organisasi pendidikan terkemuka di dunia, di mana saya berkontribusi sebagai pemikir dan pembangun komunitas.</p>
+                </div>
+                <div class="mt-12 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+                    <div class="card bg-white rounded-xl p-6 flex flex-col">
+                        <h3 class="text-xl font-bold">OPEN US Program Community Lead</h3>
+                        <p class="mt-4 text-gray-600 flex-grow">Sebagai Fasilitator MOOC Camp dan Community Lead untuk Program OPEN Departemen Luar Negeri AS, saya membimbing dan mendampingi para guru Bahasa Inggris di Indonesia, membantu menerapkan praktik terbaik global dan membangun komunitas belajar profesional yang kuat.</p>
+                        <a href="https://www.youtube.com/watch?v=5R4GUxjkcC8&feature=youtu.be" target="_blank" class="mt-4 inline-block font-semibold text-accent">View Featured Alumni Highlight →</a>
+                    </div>
+                    <div class="card bg-white rounded-xl p-6 flex flex-col">
+                        <h3 class="text-xl font-bold">TeachingEnglish British Council Contributor</h3>
+                        <p class="mt-4 text-gray-600 flex-grow">Berkontribusi pada komunitas pengajaran Bahasa Inggris global dengan menjadi pembicara di webinar, konferensi, dan podcast British Council, berbagi wawasan tentang Teknologi Pendidikan, AI, dan kerangka pengajaran inovatif.</p>
+                        <a href="https://www.youtube.com/live/hgtw9qk4RqA" target="_blank" class="mt-4 inline-block font-semibold text-accent">View Recorded Live Session →</a>
+                    </div>
+                    <a href="https://www.pearson.com/languages/why-pearson/the-global-scale-of-english/gse-ambassadors.html" target="_blank" class="card block bg-white rounded-xl p-6 relative">
+                        <h3 class="text-lg font-bold">GSE Ambassador for Pearson</h3>
+                        <p class="mt-2 text-gray-600">Mendukung dan melatih para pendidik tentang kerangka kerja Global Scale of English (GSE) melalui artikel dan lokakarya untuk meningkatkan ketepatan metode pengajaran dan pengembangan profesional.</p>
+                        <span class="project-link mt-4 inline-block font-semibold text-accent">View Profile →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Bagian Presentasi -->
+        <section id="presentations" class="py-24 fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight">International Presentations</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Pilihan beberapa sesi diskusi dan webinar saya di mana saya berbagi wawasan tentang teknologi pendidikan, AI dalam pengajaran, dan pengembangan profesional dengan audiens global.</p>
+                </div>
+                <div class="mt-12 max-w-4xl mx-auto">
+                    <div class="video-container rounded-xl shadow-lg overflow-hidden border border-gray-200">
+                        <iframe src="https://www.youtube.com/embed/videoseries?list=PL9a2kUfbEt5sQ9ASDoAjDMLfiojAMU0Kn" title="Pemutar video YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian Kontak -->
+        <section id="contact" class="py-24 bg-secondary fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                 <h2 class="text-4xl font-extrabold tracking-tight">Let's Collaborate</h2>
+                 <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">Saya selalu terbuka untuk peluang baru, kolaborasi, dan diskusi. Baik Anda calon siswa, sesama pendidik, atau institusi yang ingin berinovasi, saya akan senang terhubung dengan Anda.</p>
+                 <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                       <a href="https://facebook.com/mrfajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                           Connect on Facebook
+                       </a>
+                       <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                           Connect on LinkedIn
+                       </a>
+                 </div>
+            </div>
+        </section>
+    </main>
+    
+    <button id="back-to-top" class="hidden fixed bottom-5 right-5 bg-accent text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+        <span class="text-2xl">↑</span>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Toggle menu mobile
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
+            const hamburgerIcon = document.getElementById('hamburger-icon').children;
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isHidden = mobileMenu.classList.toggle('hidden');
+                if (isHidden) {
+                    hamburgerIcon[0].style.transform = 'rotate(0)';
+                    hamburgerIcon[1].style.opacity = '1';
+                    hamburgerIcon[2].style.transform = 'rotate(0)';
+                } else {
+                    hamburgerIcon[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    hamburgerIcon[1].style.opacity = '0';
+                    hamburgerIcon[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                }
+            });
+
+            navLinksMobile.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon[0].style.transform = 'rotate(0)';
+                    hamburgerIcon[1].style.opacity = '1';
+                    hamburgerIcon[2].style.transform = 'rotate(0)';
+                });
+            });
+
+            // Animasi fade-in saat scroll
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Tombol kembali ke atas
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            });
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Fungsi Tab
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetPanelId = button.id.replace('btn', 'panel');
+                    
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('tab-active');
+                        btn.classList.add('tab-inactive');
+                    });
+                    button.classList.add('tab-active');
+                    button.classList.remove('tab-inactive');
+
+                    tabPanels.forEach(panel => {
+                        if (panel.id === targetPanelId) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
