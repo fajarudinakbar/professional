@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELT Fundamentals: A Training Outline</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(170deg, #f0f4f8 0%, #d9e2ec 100%);
+        }
+
+        /* --- Animations --- */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-item {
+            opacity: 0;
+            animation: fade-in-up 0.7s ease-out forwards;
+        }
+
+        .timeline-card {
+            transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 12px 20px -4px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-header-button {
+            all: unset; /* Reset button styles */
+            display: flex;
+            align-items: center;
+            width: 100%;
+            cursor: pointer;
+            text-align: left;
+            padding: 0; /* Padding is on the parent card */
+            border-radius: 0.5rem; /* for focus ring */
+        }
+
+        .timeline-header-button:focus-visible {
+            outline: 3px solid #38bdf8;
+            outline-offset: 4px;
+        }
+        
+        .brief-desc {
+            color: #4b5563; /* Darker gray for better contrast */
+        }
+
+        /* Accordion Content */
+        .timeline-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.7s cubic-bezier(0.4, 0, 0.2, 1), padding-top 0.7s ease, margin-top 0.7s ease;
+        }
+        
+        .timeline-card.expanded .timeline-content {
+           margin-top: 1rem;
+           padding-top: 1.5rem;
+           border-top: 1px solid #e5e7eb; /* Lighter border */
+        }
+
+        .context-prompt {
+            background-color: #f8fafc; /* Lighter prompt background */
+            border-width: 2px;
+            transition: background-color 0.3s ease;
+        }
+
+        .timeline-card:hover .context-prompt {
+            background-color: #ffffff;
+        }
+
+        /* Color specific styles */
+        .color-yellow { --main-color: #f59e0b; }
+        .color-blue { --main-color: #3b82f6; }
+        .color-green { --main-color: #10b981; }
+        .color-pink { --main-color: #ec4899; }
+        .color-purple { --main-color: #8b5cf6; }
+        .color-orange { --main-color: #f97316; }
+        .color-cyan { --main-color: #06b6d4; }
+        .color-red { --main-color: #ef4444; }
+        .color-emerald { --main-color: #10b981; }
+        
+        .timeline-node {
+            background-color: var(--main-color);
+            box-shadow: 0 0 0 4px white, 0 0 0 6px var(--main-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-card:hover .timeline-node {
+            transform: scale(1.2);
+        }
+
+        .prompt-border {
+            border-left-color: var(--main-color);
+        }
+        
+        .timeline-card.expanded {
+            border-color: var(--main-color);
+        }
+
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+    <div class="container mx-auto px-4 py-12 md:py-20 max-w-4xl">
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700">Revisiting ELT Fundamentals</h1>
+            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">Click each module to expand its contents.</p>
+        </header>
+
+        <main id="timeline-container" class="relative">
+            <!-- The vertical line -->
+            <div class="absolute left-6 top-0 bottom-0 w-1 bg-gray-300 rounded-full" aria-hidden="true"></div>
+            
+            <div class="space-y-8">
+                <!-- Timeline Items will be injected here by JS -->
+            </div>
+        </main>
+        
+        <footer class="text-center mt-16">
+            <a href="https://fajarudinakbar.online" target="_blank" rel="noopener noreferrer" class="text-gray-500 hover:text-indigo-600 font-medium transition-colors">Designed by Fajarudin Akbar | fajarudinakbar.online</a>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const timelineContainer = document.querySelector('#timeline-container .space-y-8');
+            
+            const trainingData = [
+                {   
+                    title: "0. Introduction & Warm-up",
+                    color: "yellow",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Share your background, context, and expectations.</li>
+                            <li>Clarify the session objectives together.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">Let's start by discussing your current teaching role. What are the common challenges your students face in their everyday English communication?</p>
+                        </div>`
+                },
+                {   
+                    title: "1. CEFR and GSE", 
+                    color: "blue",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Explore the CEFR and the Global Scale of English (GSE).<br><em class="text-sm brief-desc">Brief: Frameworks that describe language ability on a scale.</em></li>
+                            <li>Compare CEFR levels with GSE’s more detailed descriptors.<br><em class="text-sm brief-desc">Brief: CEFR provides broad levels (A1-C2), while GSE offers a more granular 10-90 scale.</em></li>
+                            <li>Match descriptors with activities you can use in your classroom.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">How can using GSE's 'Can-Do' statements help you set clearer goals for a general conversation class, for instance, designing a role-play about making travel plans?</p>
+                        </div>`
+                },
+                {   
+                    title: "2. Input Hypotheses",
+                    color: "green",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Understand Krashen’s Input Hypothesis and related ideas.<br><em class="text-sm brief-desc">Brief: The idea that we acquire language by understanding input that is slightly beyond our current level (i+1).</em></li>
+                            <li>Identify examples of “i+1” in authentic materials.<br><em class="text-sm brief-desc">Brief: Finding texts or audio where most is understood, but some new language is present.</em></li>
+                            <li>Reflect on how you can apply this in your teaching.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">For general English learners, the 'affective filter' (anxiety) can be high. What strategies can you use to create a relaxed atmosphere when introducing a slightly challenging but interesting article or video?</p>
+                        </div>`
+                },
+                {   
+                    title: "3. Listening and Speaking",
+                    color: "pink",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Review the connection between listening as input and speaking as output.</li>
+                            <li>Look at communicative and task-based approaches.<br><em class="text-sm brief-desc">Brief: Teaching methods that prioritize real communication and completing tasks over just studying grammar.</em></li>
+                            <li>Design a short listening-to-speaking activity that you could use.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">Consider a task-based activity for a general English class. How would you use a short, authentic audio clip (e.g., a weather forecast) to lead into a practical speaking task (e.g., planning an outfit for the day)?</p>
+                        </div>`
+                },
+                 {  
+                    title: "4. Reading and Writing",
+                    color: "purple",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Consider how reading provides input and writing produces output.</li>
+                            <li>Explore effective strategies: skimming, scanning, guided writing, and process writing.<br><em class="text-sm brief-desc">Brief: Reading for gist (skimming), specific details (scanning), and writing with support (guided/process).</em></li>
+                            <li>Create a short reading-to-writing activity for your context.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">How can you use a simple blog post about a hobby to guide learners through the process of writing their own short paragraph describing a hobby they enjoy?</p>
+                        </div>`
+                },
+                 {  
+                    title: "5. Vocabulary and Grammar",
+                    color: "orange",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>See how vocabulary works as chunks and grammar as patterns in context.<br><em class="text-sm brief-desc">Brief: Focusing on phrases (e.g., 'have a good time') and common structures, not just single words and isolated rules.</em></li>
+                            <li>Explore ways to integrate vocabulary and grammar naturally into skills practice.</li>
+                            <li>Adapt a text to extract vocabulary chunks and grammar features.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">When using a simple story or dialogue in class, how can you draw students' attention to useful phrases ('collocations') and common sentence patterns they can use in their own conversations?</p>
+                        </div>`
+                },
+                {   
+                    title: "6. Materials Design with AI",
+                    color: "cyan",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Explore principles of effective materials design.</li>
+                            <li>Experiment with how AI tools can help you adapt or create classroom materials.<br><em class="text-sm brief-desc">Brief: Using AI to quickly generate texts, dialogues, or exercises tailored to student needs.</em></li>
+                            <li>Design a short activity or worksheet aligned with CEFR/GSE descriptors.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">Let's craft an AI prompt. What instructions would you give an AI to generate a simple, A2-level role-play dialogue about ordering coffee, ensuring it uses natural, everyday language?</p>
+                        </div>`
+                },
+                {   
+                    title: "7. Assessment",
+                    color: "red",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Differentiate between formative and summative assessment.<br><em class="text-sm brief-desc">Brief: Formative is ongoing feedback to help learning (like a quiz); summative is a final evaluation (like an exam).</em></li>
+                            <li>Learn how to align tasks with CEFR/GSE descriptors.</li>
+                            <li>Draft a quick rubric for a speaking or writing task.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">When giving formative feedback on a student's short email, what are 2-3 simple, positive criteria you could use in a rubric to encourage their progress (e.g., 'Clear purpose', 'Friendly tone')?</p>
+                        </div>`
+                },
+                {   
+                    title: "8. Wrap-up & Action Plan",
+                    color: "emerald",
+                    content: `
+                        <h4 class="font-semibold text-lg text-gray-800">Session Goals:</h4>
+                        <ul class="mt-2 list-disc list-inside text-gray-600 space-y-1">
+                            <li>Review the key takeaways from the session.</li>
+                            <li>Set one immediate action point for your teaching practice.</li>
+                            <li>Take away recommended resources and tools for follow-up.</li>
+                        </ul>
+                        <div class="mt-6 p-4 rounded-lg context-prompt prompt-border">
+                            <h5 class="font-bold text-gray-900">For Your Context:</h5>
+                            <p class="mt-1 text-gray-700">Based on our discussion, what is one concrete, actionable step you will take in the next week? It could be trying a new tech tool, adapting a piece of material using AI, or applying a new assessment technique.</p>
+                        </div>`
+                }
+            ];
+
+            trainingData.forEach((item, index) => {
+                const step = document.createElement('div');
+                step.className = `timeline-item relative color-${item.color}`;
+                step.style.animationDelay = `${0.1 + index * 0.1}s`;
+
+                step.innerHTML = `
+                    <div class="timeline-card bg-white rounded-xl shadow-md p-6 ml-12">
+                        <!-- The colored node on the timeline -->
+                        <div class="timeline-node absolute -left-12 top-8 transform -translate-x-1/2 w-6 h-6 rounded-full"></div>
+                        <button id="timeline-btn-${index}" class="timeline-header-button" aria-expanded="false" aria-controls="timeline-content-${index}">
+                            <h3 class="text-xl font-bold text-gray-800 tracking-tight">${item.title}</h3>
+                            <svg class="ml-auto h-6 w-6 text-gray-400 transform transition-transform duration-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                        <div id="timeline-content-${index}" class="timeline-content text-gray-700" role="region" aria-labelledby="timeline-btn-${index}">
+                            ${item.content}
+                        </div>
+                    </div>
+                `;
+                
+                timelineContainer.appendChild(step);
+            });
+
+            const allCards = document.querySelectorAll('.timeline-card');
+            
+            allCards.forEach((card) => {
+                const button = card.querySelector('button');
+                const content = card.querySelector('.timeline-content');
+                const chevron = card.querySelector('svg');
+
+                card.addEventListener('click', () => {
+                    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+                    // Close all other items before opening the new one
+                    allCards.forEach(c => {
+                        if (c !== card) {
+                            c.classList.remove('expanded');
+                            c.parentElement.classList.remove('expanded');
+                            const otherButton = c.querySelector('button');
+                            otherButton.setAttribute('aria-expanded', 'false');
+                            const otherContent = c.querySelector('.timeline-content');
+                            otherContent.style.maxHeight = null;
+                            const otherChevron = c.querySelector('svg');
+                            otherChevron.classList.remove('rotate-180');
+                        }
+                    });
+
+                    // Toggle the clicked item
+                    if (isExpanded) {
+                        card.classList.remove('expanded');
+                        card.parentElement.classList.remove('expanded');
+                        button.setAttribute('aria-expanded', 'false');
+                        content.style.maxHeight = null;
+                        chevron.classList.remove('rotate-180');
+                    } else {
+                        card.classList.add('expanded');
+                        card.parentElement.classList.add('expanded');
+                        button.setAttribute('aria-expanded', 'true');
+                        content.style.maxHeight = content.scrollHeight + 30 + "px"; // Add some padding
+                        chevron.classList.add('rotate-180');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
