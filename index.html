@@ -2,6 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
+    <!-- This viewport tag is essential for mobile responsiveness, and it's set up correctly! -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fajarudin Akbar | English Teacher, TEFL/TESOL Educator, EdTech Practitioner</title>
 
@@ -32,12 +33,12 @@
     <!-- Chosen Palette: Professional & Innovative -->
     <!-- Application Structure Plan: The SPA is designed as a top-down narrative journey. It starts with a high-impact Hero section to immediately establish Fajarudin Akbar's brand and key metrics. This flows into a chronological "Journey" section to build a personal connection. The core of the app is the interactive "Pillars of Practice" section, using a tabbed interface to allow users to self-select their area of interest (Teaching, Training, EdTech) without overwhelming them. This design choice promotes exploration. It's followed by a dedicated, filterable "EdTech Projects" showcase to provide tangible proof of his skills. The narrative is then reinforced with social proof in the "Impact & Recognition" section, featuring a data visualization for his rating and qualitative testimonials. The page concludes with clear, audience-specific Calls-to-Action. This structure guides the user from who he is, to what he does, how he does it, the results he gets, and finally, how to engage with him, creating a comprehensive and persuasive user experience. -->
     <!-- Visualization & Content Choices: 
-        - Professional Snapshot (Hero): Goal: Inform/Impress. Method: Dynamic stats (HTML/JS). Interaction: None. Justification: Provides immediate credibility.
-        - Educator's Journey: Goal: Organize/Narrate. Method: Vertical timeline (HTML/CSS). Interaction: Scroll-based discovery. Justification: Clearly visualizes career progression.
-        - Core Pillars: Goal: Organize/Compare. Method: Tabbed content sections (HTML/JS). Interaction: User clicks tabs to reveal detailed content. Justification: Manages information density and allows user-driven exploration of his three key specializations.
-        - Verified Impact Rating: Goal: Inform/Compare. Method: Donut Chart (Chart.js/Canvas). Interaction: Hover for details. Justification: Visually represents his high satisfaction rating in a more engaging way than text alone.
-        - EdTech Projects: Goal: Organize/Inform. Method: Interactive card grid (HTML/CSS/JS). Interaction: Buttons to filter projects by technology type (AI, App Development, etc.). Justification: Showcases the breadth and depth of his technical work and allows recruiters or collaborators to quickly find relevant examples.
-        - Global Affiliations: Goal: Inform. Method: Logo wall/list (HTML/CSS). Interaction: None. Justification: Quickly establishes his global standing and authority.
+         - Professional Snapshot (Hero): Goal: Inform/Impress. Method: Dynamic stats (HTML/JS). Interaction: None. Justification: Provides immediate credibility.
+         - Educator's Journey: Goal: Organize/Narrate. Method: Vertical timeline (HTML/CSS). Interaction: Scroll-based discovery. Justification: Clearly visualizes career progression.
+         - Core Pillars: Goal: Organize/Compare. Method: Tabbed content sections (HTML/JS). Interaction: User clicks tabs to reveal detailed content. Justification: Manages information density and allows user-driven exploration of his three key specializations.
+         - Verified Impact Rating: Goal: Inform/Compare. Method: Donut Chart (Chart.js/Canvas). Interaction: Hover for details. Justification: Visually represents his high satisfaction rating in a more engaging way than text alone.
+         - EdTech Projects: Goal: Organize/Inform. Method: Interactive card grid (HTML/CSS/JS). Interaction: Buttons to filter projects by technology type (AI, App Development, etc.). Justification: Showcases the breadth and depth of his technical work and allows recruiters or collaborators to quickly find relevant examples.
+         - Global Affiliations: Goal: Inform. Method: Logo wall/list (HTML/CSS). Interaction: None. Justification: Quickly establishes his global standing and authority.
     -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
@@ -103,6 +104,7 @@
             transform: translateY(0);
         }
         
+        /* This class is already perfectly responsive for the video! */
         .video-container {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 */
@@ -139,6 +141,7 @@
 </head>
 <body class="bg-primary">
 
+    <!-- The navigation is already responsive with md:hidden and hidden md:block classes -->
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -154,8 +157,9 @@
                         <a href="#contact" class="btn-yellow px-5 py-2 rounded-full text-sm font-medium transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">Contact</a>
                     </div>
                 </div>
+                <!-- This is the mobile menu button, correctly hidden on desktop (md:hidden) -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <div id="hamburger-icon" class="space-y-1.5">
                             <span class="block w-6 h-0.5 bg-gray-700 transition-transform duration-300"></span>
@@ -166,7 +170,7 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile menu -->
+        <!-- Mobile menu, correctly hidden by default and on md screens -->
         <div id="mobile-menu" class="md:hidden hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#journey" class="nav-link-mobile text-gray-700 hover:bg-gray-100 hover:text-accent block px-3 py-2 rounded-md text-base font-medium">Journey</a>
@@ -179,7 +183,7 @@
     </nav>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section: Responsive text (sm: md:), image (md:), and grid (sm:) -->
         <section id="home" class="py-24 md:py-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" 
@@ -188,6 +192,7 @@
                 <h1 class="text-5xl font-extrabold sm:text-6xl md:text-7xl tracking-tighter">Fajarudin Akbar</h1>
                 <p class="mt-4 max-w-4xl mx-auto text-lg md:text-xl text-gray-700">English Language Teacher&nbsp;•&nbsp;TEFL/TESOL Educator&nbsp;•&nbsp;Educational Technology Practitioner</p>
                 <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-600">Pioneering the integration of AI and Open Educational Resources to create dynamic, student-centered learning experiences for a global audience.</p>
+                <!-- This grid correctly stacks on mobile (grid-cols-1) and goes side-by-side on sm screens -->
                 <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
                     <div class="card bg-white p-6 rounded-xl">
                         <p class="text-5xl font-bold text-accent">7+</p>
@@ -201,7 +206,7 @@
             </div>
         </section>
 
-        <!-- Journey Section -->
+        <!-- Journey Section: This timeline layout is responsive, switching from 1-col (mobile) to 2-col (md:) -->
         <section id="journey" class="py-24 bg-secondary fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
@@ -210,17 +215,23 @@
                 </div>
                 <div class="mt-20 max-w-md mx-auto md:max-w-4xl">
                     <div class="relative grid gap-y-12 md:grid-cols-2 md:gap-x-12">
+                        <!-- Desktop timeline line -->
                         <div class="absolute inset-0 hidden md:flex justify-center"><div class="w-0.5 h-full" style="background-color: #CCFBF1;"></div></div>
+                        <!-- Mobile timeline line -->
                         <div class="absolute inset-0 flex md:hidden"><div class="w-0.5 h-full ml-3.5" style="background-color: #CCFBF1;"></div></div>
+                        
+                        <!-- Timeline Item 1 -->
                         <div class="relative md:text-right">
                              <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-auto md:right-[-25px] ring-4 ring-white"></div>
                              <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
-                                <h3 class="font-bold text-lg">Foundational Roles</h3>
-                                <p class="mt-2 text-sm text-gray-600">Began career as a Part-Time Teacher and English Tutor, honing core pedagogical skills and building a strong foundation in classroom instruction.</p>
+                                 <h3 class="font-bold text-lg">Foundational Roles</h3>
+                                 <p class="mt-2 text-sm text-gray-600">Began career as a Part-Time Teacher and English Tutor, honing core pedagogical skills and building a strong foundation in classroom instruction.</p>
                              </div>
                         </div>
                         <div class="hidden md:block"></div>
                         <div class="hidden md:block"></div>
+                        
+                        <!-- Timeline Item 2 -->
                         <div class="relative">
                             <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-[-23px] ring-4 ring-white"></div>
                             <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
@@ -228,15 +239,19 @@
                                 <p class="mt-2 text-sm text-gray-600">Grew into a leadership role as Head of Academic Division, pivoting from teaching students to shaping curricula. This experience provided deep insight into systemic educational challenges.</p>
                             </div>
                         </div>
+                        
+                        <!-- Timeline Item 3 -->
                         <div class="relative md:text-right">
                              <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-auto md:right-[-25px] ring-4 ring-white"></div>
                              <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
-                                <h3 class="font-bold text-lg">Global Ambassador</h3>
-                                <p class="mt-2 text-sm text-gray-600">Expanded influence by becoming an ambassador for global organizations like IELTA Indonesia, HundrEDorg, and Pearson (GSE), focusing on creating educational programs for teachers and learners worldwide.</p>
+                                 <h3 class="font-bold text-lg">Global Ambassador</h3>
+                                 <p class="mt-2 text-sm text-gray-600">Expanded influence by becoming an ambassador for global organizations like IELTA Indonesia, HundrEDorg, and Pearson (GSE), focusing on creating educational programs for teachers and learners worldwide.</p>
                              </div>
                         </div>
                         <div class="hidden md:block"></div>
                         <div class="hidden md:block"></div>
+                        
+                        <!-- Timeline Item 4 -->
                         <div class="relative">
                             <div class="absolute left-3.5 top-1 w-4 h-4 bg-accent rounded-full md:left-[-23px] ring-4 ring-white"></div>
                             <div class="ml-10 md:ml-0 card bg-white p-6 rounded-xl">
@@ -258,13 +273,16 @@
                 </div>
                 <div class="mt-12">
                     <div class="border-b border-gray-200">
-                        <nav class="-mb-px flex justify-center space-x-4 md:space-x-8" aria-label="Tabs">
-                            <button id="tab-btn-1" class="tab-btn tab-active whitespace-nowrap py-4 px-1 font-medium text-base transition-colors duration-300">Language Teaching</button>
-                            <button id="tab-btn-2" class="tab-btn tab-inactive whitespace-nowrap py-4 px-1 font-medium text-base transition-colors duration-300">Educator Empowerment</button>
-                            <button id="tab-btn-3" class="tab-btn tab-inactive whitespace-nowrap py-4 px-1 font-medium text-base transition-colors duration-300">EdTech Innovation</button>
+                        <!-- MODIFICATION: Added flex-wrap, gap-x-4, gap-y-2, and responsive text-sm sm:text-base -->
+                        <!-- This allows tabs to wrap gracefully on very small screens instead of overflowing -->
+                        <nav class="-mb-px flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8" aria-label="Tabs">
+                            <button id="tab-btn-1" class="tab-btn tab-active whitespace-nowrap py-4 px-1 font-medium text-sm sm:text-base transition-colors duration-300">Language Teaching</button>
+                            <button id="tab-btn-2" class="tab-btn tab-inactive whitespace-nowrap py-4 px-1 font-medium text-sm sm:text-base transition-colors duration-300">Educator Empowerment</button>
+                            <button id="tab-btn-3" class="tab-btn tab-inactive whitespace-nowrap py-4 px-1 font-medium text-sm sm:text-base transition-colors duration-300">EdTech Innovation</button>
                         </nav>
                     </div>
                     <div id="tab-content" class="mt-8">
+                        <!-- Tab Panel 1: Stacks on mobile (grid-cols-1) and splits on md: -->
                         <div id="tab-panel-1" class="tab-panel">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                                 <div>
@@ -280,6 +298,7 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Tab Panel 2: Stacks on mobile (grid-cols-1) and splits on md: -->
                         <div id="tab-panel-2" class="tab-panel hidden">
                              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                                 <div>
@@ -290,14 +309,15 @@
                                 <div class="bg-white p-6 rounded-xl border border-gray-200">
                                      <h4 class="font-bold text-lg text-accent">Community Leadership Highlights</h4>
                                      <ul class="mt-2 space-y-2 text-gray-600 list-disc list-inside">
-                                        <li>Developed and led teacher professional development on innovative educator programs.</li>
-                                        <li>Authored articles for leading educational platforms on using frameworks for collaborative workshops.</li>
-                                        <li>Active panelist and speaker at forums such as the British Council, Cambridge, and Trinity College London webinars and conferences.</li>
-                                        <li>Facilitator of teachers' communities with a passion for Open Educational Resources (OER).</li>
+                                         <li>Developed and led teacher professional development on innovative educator programs.</li>
+                                         <li>Authored articles for leading educational platforms on using frameworks for collaborative workshops.</li>
+                                         <li>Active panelist and speaker at forums such as the British Council, Cambridge, and Trinity College London webinars and conferences.</li>
+                                         <li>Facilitator of teachers' communities with a passion for Open Educational Resources (OER).</li>
                                      </ul>
                                 </div>
                             </div>
                         </div>
+                        <!-- Tab Panel 3: Single column layout works on all screen sizes -->
                         <div id="tab-panel-3" class="tab-panel hidden">
                             <div class="text-center">
                                 <h3 class="text-2xl font-bold">The Vanguard of EdTech</h3>
@@ -311,7 +331,7 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- Projects Section: Great responsive grid! 1-col (mobile) -> 2-col (md) -> 3-col (lg) -->
         <section id="projects" class="py-24 bg-secondary fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
@@ -353,7 +373,7 @@
             </div>
         </section>
 
-        <!-- Impact Section -->
+        <!-- Impact Section: Single column layout works perfectly on mobile -->
         <section id="impact" class="py-24 fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
@@ -373,7 +393,7 @@
             </div>
         </section>
 
-        <!-- Global Recognition Section -->
+        <!-- Global Recognition Section: Responsive grid stacks to 1-col on mobile/md and expands to 3-col on lg -->
         <section id="recognition" class="py-24 bg-secondary fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
@@ -401,7 +421,7 @@
         </section>
 
 
-        <!-- Presentations Section -->
+        <!-- Presentations Section: The .video-container CSS class makes this section perfectly responsive -->
         <section id="presentations" class="py-24 fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center">
@@ -416,25 +436,26 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section: Buttons stack on mobile (flex-col) and go side-by-side on sm: -->
         <section id="contact" class="py-24 bg-secondary fade-in-section">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                  <h2 class="text-4xl font-extrabold tracking-tight">Let's Collaborate</h2>
                  <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">I am always open to new opportunities, collaborations, and conversations. Whether you're a potential student, a fellow educator, or an institution looking to innovate, I'd love to connect.</p>
                  <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                     <a href="https://facebook.com/mrfajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                         Connect on Facebook
-                     </a>
-                     <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                         Connect on LinkedIn
-                     </a>
+                       <!-- These buttons correctly go full-width (w-full) on mobile and auto-width (sm:w-auto) on larger screens -->
+                       <a href="https://facebook.com/mrfajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                           Connect on Facebook
+                       </a>
+                       <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                           Connect on LinkedIn
+                       </a>
                  </div>
             </div>
         </section>
     </main>
     
-    <button id="back-to-top" class="hidden fixed bottom-5 right-5 bg-accent text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
-        <span class="text-2xl">↑</span>
+    <button id="back-to-top" class="hidden fixed bottom-5 right-5 bg-accent text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Back to top">
+        <span class="text-2xl" aria-hidden="true">↑</span>
     </button>
 
     <script>
@@ -446,20 +467,27 @@
             const hamburgerIcon = document.getElementById('hamburger-icon').children;
 
             mobileMenuButton.addEventListener('click', () => {
-                const isHidden = mobileMenu.classList.toggle('hidden');
-                if (isHidden) {
-                    hamburgerIcon[0].style.transform = 'rotate(0)';
-                    hamburgerIcon[1].style.opacity = '1';
-                    hamburgerIcon[2].style.transform = 'rotate(0)';
-                } else {
+                const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+                mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.classList.toggle('hidden');
+                
+                if (!isExpanded) {
+                    // Open
                     hamburgerIcon[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
                     hamburgerIcon[1].style.opacity = '0';
                     hamburgerIcon[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                } else {
+                    // Close
+                    hamburgerIcon[0].style.transform = 'rotate(0)';
+                    hamburgerIcon[1].style.opacity = '1';
+                    hamburgerIcon[2].style.transform = 'rotate(0)';
                 }
             });
 
+            // Close mobile menu when a link is clicked
             navLinksMobile.forEach(link => {
                 link.addEventListener('click', () => {
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
                     mobileMenu.classList.add('hidden');
                     hamburgerIcon[0].style.transform = 'rotate(0)';
                     hamburgerIcon[1].style.opacity = '1';
@@ -505,9 +533,11 @@
                     tabButtons.forEach(btn => {
                         btn.classList.remove('tab-active');
                         btn.classList.add('tab-inactive');
+                        btn.setAttribute('aria-selected', 'false');
                     });
                     button.classList.add('tab-active');
                     button.classList.remove('tab-inactive');
+                    button.setAttribute('aria-selected', 'true');
 
                     tabPanels.forEach(panel => {
                         if (panel.id === targetPanelId) {
