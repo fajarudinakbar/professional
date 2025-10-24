@@ -162,7 +162,12 @@
 <body class="antialiased">
     <canvas id="bg-canvas"></canvas>
 
-    <!-- Theme Toggle -->
+    <!-- === NEW: Theme Toggle Button === -->
+    <button id="theme-toggle" class="fixed top-6 right-6 z-50 p-2 rounded-full glass-card text-slate-700 dark:text-slate-300 hover:text-violet-600 dark:hover:text-violet-400 transition-all duration-300" aria-label="Toggle theme">
+        <i data-lucide="sun" id="theme-sun" class="h-6 w-6 hidden"></i>
+        <i data-lucide="moon" id="theme-moon" class="h-6 w-6 hidden"></i>
+        <i data-lucide="laptop" id="theme-system" class="h-6 w-6 hidden"></i>
+    </button>
     
     <div class="relative max-w-5xl mx-auto p-4 sm:p-6 md:p-8 overflow-hidden">
 
@@ -385,27 +390,98 @@
 
     <!-- JavaScript for animations & theme toggle -->
     <script>
+        // FIX: Run lucide.createIcons() on DOMContentLoaded
         document.addEventListener('DOMContentLoaded', function() {
-            lucide.createIcons();
-
-            // --- Auto Theme based on Browser/OS Preference ---
-            const applyTheme = (isDark) => {
-                if (isDark) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
+            if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                try {
+                    lucide.createIcons();
+                } catch (e) {
+                    console.error('Error running lucide.createIcons():', e);
                 }
-            };
+            } else {
+                console.warn('Lucide was not ready on DOMContentLoaded. Will try again on window.load.');
+                // Fallback to window.load if lucide wasn't ready
+                window.addEventListener('load', function() {
+                     if (typeof lucide !== 'undefined' && lucide.createIcons) {
+                        try {
+                            lucide.createIcons();
+                        } catch (e) {
+                            console.error('Error running lucide.createIcons() on load:', e);
+                        }
+                    } else {
+                        console.error('Lucide library failed to load or initialize.');
+                    }
+                });
+            }
+        });
+        
+        // Keep all other logic on window.load
+        window.addEventListener('load', function() {
 
-            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            // --- === UPDATED: Manual Theme Toggle Logic === ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const sunIcon = document.getElementById('theme-sun');
+            const moonIcon = document.getElementById('theme-moon');
+            const systemIcon = document.getElementById('theme-system');
             
-            // Set initial theme
-            applyTheme(mediaQuery.matches);
+            // Get theme from localStorage or default to 'system'
+            let currentTheme = localStorage.getItem('theme') || 'system';
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    // Apply dark theme
+                    document.documentElement.classList.add('dark');
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.remove('hidden');
+                    systemIcon.classList.add('hidden');
+                } else if (theme === 'light') {
+                    // Apply light theme
+                    document.documentElement.classList.remove('dark');
+                    sunIcon.classList.remove('hidden');
+                    moonIcon.classList.add('hidden');
+                    systemIcon.classList.add('hidden');
+                } else { // 'system'
+                    // Apply system theme
+                    if (mediaQuery.matches) {
+                        document.documentElement.classList.add('dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                    }
+                    sunIcon.classList.add('hidden');
+                    moonIcon.classList.add('hidden');
+                    systemIcon.classList.remove('hidden');
+                }
+            }
+
+            // Set initial theme on page load
+            applyTheme(currentTheme);
 
             // Listen for changes in the system theme
             mediaQuery.addEventListener('change', (e) => {
-                applyTheme(e.matches);
+                if (currentTheme === 'system') {
+                    // Only re-apply if the user is in 'system' mode
+                    applyTheme('system');
+                }
             });
+
+            // Handle toggle button click
+            themeToggle.addEventListener('click', () => {
+                // Cycle through the three modes
+                if (currentTheme === 'system') {
+                    currentTheme = 'light';
+                } else if (currentTheme === 'light') {
+                    currentTheme = 'dark';
+                } else { // 'dark'
+                    currentTheme = 'system';
+                }
+                
+                // Save the user's choice
+                localStorage.setItem('theme', currentTheme);
+                // Apply the new theme
+                applyTheme(currentTheme);
+            });
+
 
             // --- Scroll Animations ---
             const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -524,3 +600,5 @@
     </script>
 </body>
 </html>
+
+
