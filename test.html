@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <!-- This viewport tag is essential for mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Top Notch SEO Meta Description -->
+    <meta name="description" content="Explore the professional journey of Fajarudin Akbar, a global English Teacher and EdTech Practitioner specializing in tech-enhanced learning and Open Educational Resources.">
+    
+    <title>Fajarudin Akbar | English Teacher and EdTech Practitioner</title>
+
+    <!-- META TAGS FOR SHARING -->
+    <meta property="og:title" content="Fajarudin Akbar - Professional Portfolio">
+    <meta property="og:site_name" content="Fajarudin Akbar's Portfolio">
+    <meta property="og:description" content="An English Teacher, TEFL/TESOL Educator, and Educational Technology Practitioner.">
+    <meta property="og:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+    <meta property="og:image:alt" content="A professional headshot of Fajarudin Akbar">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fajarudinakbar.github.io/professional/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fajarudin Akbar - Professional Portfolio">
+    <meta name="twitter:description" content="An English Teacher, TEFL/TESOL Educator, and Educational Technology Practitioner.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC; /* Slate 50 */
+            color: #334155; /* Slate 700 */
+        }
+        
+        /* SERIOUS GRADIENT TEXT */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Dark Slate to Deep Blue */
+            background-image: linear-gradient(to right, #0F172A, #1E3A8A); 
+        }
+
+        .text-gradient-accent {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            /* Slate to Gray */
+            background-image: linear-gradient(to right, #334155, #475569); 
+        }
+        
+        h1, h2, h3, h4 { color: #0F172A; /* Slate 900 */ }
+
+        /* Navigation Links */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #1E3A8A; /* Navy Blue */
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        .nav-link:hover { color: #1E3A8A; }
+        
+        /* Tabs */
+        .tab-active {
+            color: #1E3A8A;
+            border-bottom: 2px solid #1E3A8A;
+        }
+        .tab-inactive {
+            color: #64748B;
+            border-bottom: 2px solid transparent;
+        }
+        
+        /* Cards */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.4s ease;
+            border: 1px solid #E2E8F0;
+            position: relative;
+            overflow: hidden;
+            background-color: white;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            /* Deep Corporate Blue Gradient */
+            background: linear-gradient(to right, #1E3A8A, #3B82F6);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .card:hover::before { transform: scaleX(1); }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-color: #CBD5E1;
+        }
+
+        /* Animation Utilities */
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Roadmap Styles - SERIOUS */
+        .roadmap-container {
+            position: relative;
+            padding: 2rem 0;
+        }
+        
+        /* The central road line - Slate Gradient */
+        .roadmap-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            /* Subtle Slate Gradient */
+            background: linear-gradient(to bottom, #E2E8F0 0%, #64748B 20%, #64748B 80%, #E2E8F0 100%);
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+        
+        /* For mobile, move line to left */
+        @media (max-width: 768px) {
+            .roadmap-line {
+                left: 2rem;
+            }
+        }
+
+        .roadmap-node {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: white;
+            /* Dark Slate Border */
+            border: 3px solid #334155; 
+            border-radius: 50%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #334155;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .roadmap-node {
+                left: 2rem;
+            }
+        }
+
+        .roadmap-node:hover {
+            transform: translateX(-50%) scale(1.05);
+            border-color: #1E3A8A; /* Navy on hover */
+            color: #1E3A8A;
+        }
+
+        /* Horizontal connector arms */
+        .roadmap-arm {
+            position: absolute;
+            top: 50%;
+            height: 2px;
+            background-color: #CBD5E1;
+            width: 2rem;
+            z-index: 1;
+        }
+        .roadmap-arm.left { right: 50%; margin-right: 1.75rem; }
+        .roadmap-arm.right { left: 50%; margin-left: 1.75rem; }
+        
+        @media (max-width: 768px) {
+            .roadmap-arm {
+                left: 2rem;
+                width: 1.5rem;
+                margin-left: 1.75rem !important; /* Force overrides */
+                margin-right: 0 !important;
+            }
+        }
+
+        /* Category Chips - Muted Professional Colors */
+        .category-chip {
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 4px; /* More square for seriousness */
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.75rem;
+        }
+        .chip-platform { background-color: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; } /* Slate */
+        .chip-ai { background-color: #EFF6FF; color: #1E40AF; border: 1px solid #BFDBFE; } /* Blue */
+        .chip-app { background-color: #F8FAFC; color: #475569; border: 1px solid #E2E8F0; } /* Light Slate */
+        .chip-guide { background-color: #F0FDF4; color: #166534; border: 1px solid #BBF7D0; } /* Subtle Green */
+        .chip-framework { background-color: #FFF7ED; color: #9A3412; border: 1px solid #FFEDD5; } /* Muted Orange */
+        .chip-training { background-color: #FAFAF9; color: #57534E; border: 1px solid #E7E5E4; } /* Stone */
+
+        /* Buttons - Corporate Style */
+        .btn-gradient {
+            /* Deep Slate Gradient */
+            background-image: linear-gradient(to right, #1E293B, #334155);
+            color: #FFFFFF;
+        }
+        .btn-gradient:hover {
+            background-image: linear-gradient(to right, #0F172A, #1E293B);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .btn-tech {
+            /* Solid Corporate Blue */
+            background-color: #1E40AF;
+            background-image: none;
+            color: white;
+        }
+        .btn-tech:hover {
+             background-color: #1E3A8A;
+        }
+        .btn-social { background-color: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; }
+        .btn-social:hover { background-color: #E2E8F0; color: #0F172A; }
+
+        /* Background Blobs - Very Subtle */
+        .blob-cont {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            overflow: hidden; z-index: -1; pointer-events: none;
+        }
+        .blob {
+            position: absolute; border-radius: 50%;
+            filter: blur(90px); opacity: 0.4;
+            animation: move 15s infinite alternate;
+        }
+        /* Muted Gray/Blue Blobs */
+        .blob-1 { top: 5%; left: 5%; width: 350px; height: 350px; background: #CBD5E1; animation-duration: 20s; }
+        .blob-2 { bottom: 15%; right: 5%; width: 400px; height: 400px; background: #94A3B8; animation-duration: 25s; animation-direction: alternate-reverse; }
+        @keyframes move {
+            from { transform: translate(0, 0) scale(1); }
+            to { transform: translate(20px, -20px) scale(1.05); }
+        }
+    </style>
+</head>
+<body class="bg-primary relative">
+
+    <!-- Scroll Progress Bar - Slate/Blue -->
+    <div id="scroll-progress" class="fixed top-16 left-0 h-1 bg-gradient-to-r from-slate-400 to-blue-800 z-40 transition-all duration-100 ease-out w-0"></div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <a href="#home" class="text-2xl font-bold tracking-tight text-gradient">Fajarudin Akbar</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#journey" class="nav-link text-slate-600 px-3 py-2 text-sm font-medium">Journey</a>
+                        <a href="#expertise" class="nav-link text-slate-600 px-3 py-2 text-sm font-medium">Expertise</a>
+                        <a href="#projects" class="nav-link text-slate-600 px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="#impact" class="nav-link text-slate-600 px-3 py-2 text-sm font-medium">Impact</a>
+                        <a href="#contact" class="btn-gradient px-6 py-2 rounded-full text-sm font-medium transition-transform duration-300 hover:scale-105">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <div id="hamburger-icon" class="space-y-1.5">
+                            <span class="block w-6 h-0.5 bg-slate-600 transition-transform duration-300"></span>
+                            <span class="block w-6 h-0.5 bg-slate-600 transition-opacity duration-300"></span>
+                            <span class="block w-6 h-0.5 bg-slate-600 transition-transform duration-300"></span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-b border-slate-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#journey" class="nav-link-mobile text-slate-600 hover:bg-slate-50 hover:text-slate-900 block px-3 py-2 rounded-md text-base font-medium">Journey</a>
+                <a href="#expertise" class="nav-link-mobile text-slate-600 hover:bg-slate-50 hover:text-slate-900 block px-3 py-2 rounded-md text-base font-medium">Expertise</a>
+                <a href="#projects" class="nav-link-mobile text-slate-600 hover:bg-slate-50 hover:text-slate-900 block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                <a href="#impact" class="nav-link-mobile text-slate-600 hover:bg-slate-50 hover:text-slate-900 block px-3 py-2 rounded-md text-base font-medium">Impact</a>
+                <a href="#contact" class="nav-link-mobile btn-gradient block px-3 py-2 rounded-md text-base font-medium text-center mt-4">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="py-24 md:py-40 relative overflow-hidden">
+            <div class="blob-cont"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <img src="https://raw.githubusercontent.com/fajarudinakbar/Images/refs/heads/main/Fajarudin%20Akbar.png" alt="Foto profil Fajarudin Akbar" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 border-4 border-white shadow-2xl transition-transform hover:scale-105 duration-500 ring-4 ring-slate-100">
+                <h1 class="text-5xl font-extrabold sm:text-6xl md:text-7xl tracking-tighter text-slate-900">
+                    <span class="text-gradient">Fajarudin Akbar</span>
+                </h1>
+                <p class="mt-4 max-w-4xl mx-auto text-lg md:text-xl text-slate-600 font-medium">English Language Teacher • TEFL/TESOL Educator • Educational Technology Practitioner</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-slate-500 leading-relaxed">Pioneering the integration of <span class="text-blue-800 font-semibold">Digital Innovation</span> and <span class="text-slate-700 font-semibold">Open Educational Resources</span> to create dynamic, student-centered learning experiences.</p>
+                
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                    <div class="card bg-white/95 backdrop-blur-sm p-6 rounded-xl flex flex-col justify-center items-center shadow-sm">
+                        <p class="text-3xl sm:text-4xl font-bold text-gradient-accent">Global Educator</p>
+                        <p class="mt-2 text-lg font-medium text-slate-600">Proven International Impact</p>
+                    </div>
+                    <div class="card bg-white/95 backdrop-blur-sm p-6 rounded-xl flex flex-col justify-center items-center shadow-sm">
+                        <p class="text-3xl sm:text-4xl font-bold text-gradient-accent">EdTech Innovator</p>
+                        <p class="mt-2 text-lg font-medium text-slate-600">Pioneering Tech-Enhanced Learning</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Redesigned Journey Section - SERIOUS ROADMAP -->
+        <section id="journey" class="py-24 bg-white fade-in-section relative overflow-hidden">
+             <!-- Background Subtle Grid -->
+            <div class="absolute inset-0 z-0 opacity-[0.03]" style="background-image: radial-gradient(#334155 1px, transparent 1px); background-size: 30px 30px;"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center mb-16">
+                    <span class="bg-slate-100 text-slate-700 border border-slate-200 py-1 px-3 rounded-md text-xs font-bold tracking-widest uppercase">Career Progression</span>
+                    <h2 class="mt-3 text-4xl font-extrabold tracking-tight text-slate-900">The Educator's Roadmap</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500">A systematic evolution from classroom instruction to systemic educational leadership and innovation.</p>
+                </div>
+
+                <div class="roadmap-container max-w-5xl mx-auto">
+                    <!-- Central Line -->
+                    <div class="roadmap-line"></div>
+
+                    <!-- Step 1: Foundational -->
+                    <div class="relative grid md:grid-cols-2 items-center mb-16 md:mb-24">
+                        <div class="md:text-right pr-0 md:pr-12 order-2 md:order-1 mt-6 md:mt-0 pl-12 md:pl-0">
+                            <div class="card bg-white p-6 rounded-xl relative hover:border-blue-800">
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Phase I</span>
+                                <h3 class="font-bold text-xl text-slate-800">Foundational Roles</h3>
+                                <p class="mt-2 text-slate-600">Began as a Part-Time Teacher and English Tutor. Focused on mastering classroom management, student psychology, and core pedagogical methodologies.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Connector & Node -->
+                        <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 flex items-center h-full md:h-auto z-20">
+                             <div class="roadmap-node" title="Foundation">
+                                <!-- Book Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                                </svg>
+                             </div>
+                             <!-- Desktop Arm Left -->
+                             <div class="hidden md:block roadmap-arm left"></div>
+                        </div>
+
+                        <div class="order-3 md:order-2"></div>
+                    </div>
+
+                    <!-- Step 2: Leadership -->
+                    <div class="relative grid md:grid-cols-2 items-center mb-16 md:mb-24">
+                        <div class="order-2 hidden md:block"></div>
+                        
+                        <!-- Connector & Node -->
+                         <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 flex items-center h-full md:h-auto z-20">
+                             <div class="roadmap-node" title="Leadership">
+                                <!-- Building/Briefcase Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                                </svg>
+                             </div>
+                             <!-- Desktop Arm Right -->
+                             <div class="hidden md:block roadmap-arm right"></div>
+                        </div>
+
+                        <div class="pl-12 md:pl-12 order-1 md:order-2 mt-6 md:mt-0">
+                            <div class="card bg-white p-6 rounded-xl relative hover:border-blue-800">
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Phase II</span>
+                                <h3 class="font-bold text-xl text-slate-800">Leadership in Academia</h3>
+                                <p class="mt-2 text-slate-600">Advanced to Head of Academic Division. Shifted focus to systemic improvement, curriculum architecture, and teacher mentorship.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Ambassador -->
+                    <div class="relative grid md:grid-cols-2 items-center mb-16 md:mb-24">
+                         <div class="md:text-right pr-0 md:pr-12 order-2 md:order-1 mt-6 md:mt-0 pl-12 md:pl-0">
+                            <div class="card bg-white p-6 rounded-xl relative hover:border-blue-800">
+                                <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1 block">Phase III</span>
+                                <h3 class="font-bold text-xl text-slate-800">Global Ambassador</h3>
+                                <p class="mt-2 text-slate-600">Represented global bodies like IELTA, HundrEDorg, and Pearson (GSE). Facilitated cross-border programs and championed global educational standards.</p>
+                            </div>
+                        </div>
+                        
+                         <!-- Connector & Node -->
+                        <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 flex items-center h-full md:h-auto z-20">
+                             <div class="roadmap-node" title="Global Impact">
+                                <!-- Globe Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                             </div>
+                             <!-- Desktop Arm Left -->
+                             <div class="hidden md:block roadmap-arm left"></div>
+                        </div>
+
+                        <div class="order-3 md:order-2"></div>
+                    </div>
+
+                    <!-- Step 4: Founder / Current -->
+                    <div class="relative grid md:grid-cols-2 items-center">
+                        <div class="order-2 hidden md:block"></div>
+                        
+                        <!-- Connector & Node -->
+                         <div class="absolute left-0 md:left-1/2 md:-translate-x-1/2 top-0 md:top-1/2 md:-translate-y-1/2 flex items-center h-full md:h-auto z-20">
+                             <div class="roadmap-node bg-slate-800 text-white border-white" title="Current Era">
+                                <!-- Rocket Icon -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                </svg>
+                             </div>
+                             <!-- Desktop Arm Right -->
+                             <div class="hidden md:block roadmap-arm right"></div>
+                        </div>
+
+                        <div class="pl-12 md:pl-12 order-1 md:order-2 mt-6 md:mt-0">
+                            <div class="card bg-white p-6 rounded-xl relative border-2 border-slate-200 shadow-md">
+                                <span class="absolute top-0 right-0 bg-slate-100 text-slate-600 text-xs font-bold px-2 py-1 rounded-bl-lg border-l border-b border-slate-200">CURRENT</span>
+                                <span class="text-xs font-bold text-blue-800 uppercase tracking-wider mb-1 block">Phase IV</span>
+                                <h3 class="font-bold text-xl text-slate-800">EdTech Founder & Consultant</h3>
+                                <p class="mt-2 text-slate-600">Leading the <strong>MOOC Guru</strong> platform and providing expert consultancy. Leveraging AI and digital tools to democratize access to education.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="expertise" class="py-24 fade-in-section bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Core Pillars of Practice</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500">My expertise is built on three interconnected pillars that form a synergistic "innovation flywheel".</p>
+                </div>
+                <div class="mt-12">
+                    <div class="border-b border-slate-200">
+                        <nav class="-mb-px flex flex-wrap justify-center gap-x-4 gap-y-2 md:gap-x-8" aria-label="Tabs">
+                            <button id="tab-btn-1" class="tab-btn tab-active whitespace-nowrap py-4 px-4 font-bold text-sm sm:text-base transition-colors duration-300">Language Teaching</button>
+                            <button id="tab-btn-2" class="tab-btn tab-inactive whitespace-nowrap py-4 px-4 font-bold text-sm sm:text-base transition-colors duration-300">Educator Empowerment</button>
+                            <button id="tab-btn-3" class="tab-btn tab-inactive whitespace-nowrap py-4 px-4 font-bold text-sm sm:text-base transition-colors duration-300">EdTech Innovation</button>
+                        </nav>
+                    </div>
+                    <div id="tab-content" class="mt-8">
+                        <!-- Tab Panel 1 -->
+                        <div id="tab-panel-1" class="tab-panel">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900">The Art of Pedagogy in Practice</h3>
+                                    <p class="mt-4 text-slate-600 leading-relaxed">My philosophy is deeply student-centered. I specialize in high-stakes contexts like Business and Academic English, where learners require targeted, real-world language skills.</p>
+                                    <p class="mt-4 text-slate-600 leading-relaxed">A key element of my pedagogy is the use of the <span class="font-semibold text-blue-800">Global Scale of English (GSE)</span>. I use it as a "mirror" to reflect on my teaching, ensuring activities are precisely matched to proficiency levels.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+                                    <div class="absolute top-0 right-0 w-20 h-20 bg-slate-100 rounded-bl-full -mr-10 -mt-10 opacity-50"></div>
+                                    <h4 class="font-bold text-lg text-slate-700">Case Study: Personalized Intervention</h4>
+                                    <p class="mt-2 text-slate-600"><strong>Challenge:</strong> Disparate skills (Speaking GSE 55 / Writing GSE 45).</p>
+                                    <p class="mt-2 text-slate-600"><strong>Approach:</strong> Challenged speaking with complex mock interviews; supported writing with guided sentence frames.</p>
+                                    <p class="mt-2 text-slate-600"><strong>Outcome:</strong> Accelerated, balanced progress in both domains.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab Panel 2 -->
+                        <div id="tab-panel-2" class="tab-panel hidden">
+                             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-slate-900">A Leader in TEFL/TESOL</h3>
+                                    <p class="mt-4 text-slate-600 leading-relaxed">I extend my impact by actively empowering fellow educators. My experience in academic leadership provides deep insights into curriculum design and effective mentorship.</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden">
+                                     <div class="absolute top-0 right-0 w-20 h-20 bg-slate-100 rounded-bl-full -mr-10 -mt-10 opacity-50"></div>
+                                     <h4 class="font-bold text-lg text-slate-700">Community Leadership</h4>
+                                     <ul class="mt-2 space-y-2 text-slate-600 list-disc list-inside">
+                                          <li>Led professional development on innovative educator programs.</li>
+                                          <li>Authored articles on collaborative workshop frameworks.</li>
+                                          <li>Panelist/Speaker: British Council, Cambridge, Trinity College London.</li>
+                                          <li>Facilitator of OER-focused teacher communities.</li>
+                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Tab Panel 3 -->
+                        <div id="tab-panel-3" class="tab-panel hidden">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-bold text-slate-900">The Vanguard of EdTech</h3>
+                                <p class="mt-4 text-slate-600 leading-relaxed max-w-3xl mx-auto">I stand at the forefront of educational technology, not as a passive adopter but as a creative practitioner. I leverage technology to actively shape the learning process, using advanced digital tools for creation rather than just consumption.</p>
+                                <a href="#projects" class="mt-6 inline-block btn-tech px-6 py-3 rounded-full font-medium transition-transform duration-300 hover:scale-105 shadow-md">View My EdTech Projects</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 bg-white fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Key Projects & Initiatives</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500">Demonstrating commitment to solving real-world teaching challenges with innovative technology.</p>
+                </div>
+                <div id="project-grid" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <a href="https://moocguru.com" target="_blank" class="card block bg-white rounded-xl p-6 relative stagger-1">
+                        <span class="category-chip chip-platform">Platform</span>
+                        <h3 class="text-lg font-bold text-slate-800">Founder: MOOC Guru Platform</h3>
+                        <p class="mt-2 text-slate-600">A comprehensive online platform providing Open CPD, free English courses, and professional development resources.</p>
+                        <span class="text-blue-800 font-bold mt-4 inline-block text-sm">View Platform →</span>
+                    </a>
+                    <a href="https://poe.com/FajarudinAkbar.ELT" target="_blank" class="card block bg-white rounded-xl p-6 relative stagger-2">
+                        <span class="category-chip chip-ai">AI Tool</span>
+                        <h3 class="text-lg font-bold text-slate-800">AI Assistants on Poe</h3>
+                        <p class="mt-2 text-slate-600">Developed a suite of functional AI tools, including a GSE-aligned worksheet generator and a virtual assistant.</p>
+                         <span class="text-blue-800 font-bold mt-4 inline-block text-sm">Try Tools →</span>
+                    </a>
+                    <a href="https://fajarudinakbar.online/static-to-app" target="_blank" class="card block bg-white rounded-xl p-6 relative stagger-3">
+                        <span class="category-chip chip-app">App Development</span>
+                        <h3 class="text-lg font-bold text-slate-800">Static Worksheets to Apps</h3>
+                        <p class="mt-2 text-slate-600">Transformed traditional teaching materials into dynamic, student-centered learning experiences using AI.</p>
+                        <span class="text-blue-800 font-bold mt-4 inline-block text-sm">See Demo →</span>
+                    </a>
+                    <a href="https://fajarudinakbar.online/genai-and-gse" target="_blank" class="card block bg-white rounded-xl p-6 relative stagger-1">
+                        <span class="category-chip chip-guide">Interactive Guide</span>
+                        <h3 class="text-lg font-bold text-slate-800">Guiding Generative AI with GSE</h3>
+                        <p class="mt-2 text-slate-600">An interactive guide on using the GSE framework to create effective prompts for generative AI in lesson planning.</p>
+                         <span class="text-blue-800 font-bold mt-4 inline-block text-sm">Read Guide →</span>
+                    </a>
+                    <a href="https://fajarudinakbar.online/fyp-framework" class="card block bg-white rounded-xl p-6 relative stagger-2">
+                        <span class="category-chip chip-framework">Framework</span>
+                        <h3 class="text-lg font-bold text-slate-800">The FYP Framework</h3>
+                        <p class="mt-2 text-slate-600">A practical framework for educators to Find, Personalize, and Plan lessons using modern EdTech tools.</p>
+                         <span class="text-blue-800 font-bold mt-4 inline-block text-sm">Explore Framework →</span>
+                    </a>
+                    <a href="https://fajarudinakbar.online/handson-genai" target="_blank" class="card block bg-white rounded-xl p-6 relative stagger-3">
+                        <span class="category-chip chip-training">Workshop</span>
+                        <h3 class="text-lg font-bold text-slate-800">Hands-On with Generative AI</h3>
+                        <p class="mt-2 text-slate-600">A practical framework and hands-on guide for educators to leverage generative AI in their teaching practice.</p>
+                        <span class="text-blue-800 font-bold mt-4 inline-block text-sm">View Workshop →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact & Recognition -->
+        <section id="impact" class="py-24 fade-in-section bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Evidence of Impact & Recognition</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500">Substantiated by industry recognition and peer endorsements from global leaders.</p>
+                </div>
+                
+                <div class="mt-12 max-w-3xl mx-auto space-y-6">
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm relative">
+                        <div class="absolute top-4 left-4 text-6xl text-slate-200 font-serif leading-none">"</div>
+                        <p class="text-slate-600 italic relative z-10 text-lg">"An <span class="font-bold text-blue-800">active member</span>... reimagining what's possible in the classroom by using AI and interactive tools to create dynamic, student-centered learning experiences."</p>
+                        <p class="mt-4 text-right font-bold text-slate-900">- edCommunity Spotlight</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl border border-slate-200 shadow-sm relative">
+                         <div class="absolute top-4 left-4 text-6xl text-slate-200 font-serif leading-none">"</div>
+                        <p class="text-slate-600 italic relative z-10 text-lg">"An <span class="font-bold text-blue-800">exceptional educator</span> and an inspiring academic and business English teacher."</p>
+                        <p class="mt-4 text-right font-bold text-slate-900">- Cathoven AI TechTeach Innovator Spotlight</p>
+                    </div>
+                </div>
+
+                <!-- Global Recognition Grid -->
+                <div class="mt-16 grid gap-8 md:grid-cols-1 lg:grid-cols-3">
+                    <div class="card bg-white rounded-xl p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900">OPEN US Program Lead</h3>
+                        <p class="mt-4 text-slate-600 flex-grow">Community Lead for the U.S. Department of State's OPEN Program, mentoring Indonesian English teachers.</p>
+                        <a href="https://www.youtube.com/watch?v=5R4GUxjkcC8&feature=youtu.be" target="_blank" class="mt-4 inline-block font-bold text-blue-800 hover:text-blue-900">View Highlight →</a>
+                    </div>
+                    <div class="card bg-white rounded-xl p-6 flex flex-col">
+                        <h3 class="text-xl font-bold text-slate-900">British Council Contributor</h3>
+                        <p class="mt-4 text-slate-600 flex-grow">Contributing to the global ELT community via webinars, conferences, and podcasts.</p>
+                        <a href="https://www.youtube.com/live/hgtw9qk4RqA" target="_blank" class="mt-4 inline-block font-bold text-blue-800 hover:text-blue-900">View Session →</a>
+                    </div>
+                    <div class="card bg-white rounded-xl p-6 flex flex-col">
+                        <h3 class="text-lg font-bold text-slate-900">GSE Ambassador (Pearson)</h3>
+                        <p class="mt-2 text-slate-600">Advocating for and training educators on the Global Scale of English framework.</p>
+                        <a href="https://www.pearson.com/languages/why-pearson/the-global-scale-of-english/gse-ambassadors.html" target="_blank" class="mt-4 inline-block font-bold text-blue-800 hover:text-blue-900">View Profile →</a>
+                    </div>
+                </div>
+                
+                 <!-- Presentation Video -->
+                 <div class="mt-16 max-w-4xl mx-auto">
+                    <div class="video-container rounded-xl shadow-lg overflow-hidden border border-slate-300 bg-slate-100" style="position: relative; padding-bottom: 56.25%; height: 0;">
+                        <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/videoseries?list=PL9a2kUfbEt5sQ9ASDoAjDMLfiojAMU0Kn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <p class="text-center mt-4 text-sm text-slate-500">Selected International Presentations & Webinars</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-white fade-in-section">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                 <h2 class="text-4xl font-extrabold tracking-tight text-slate-900">Let's Collaborate</h2>
+                 <p class="mt-4 max-w-2xl mx-auto text-lg text-slate-500">I am always open to new opportunities, collaborations, and conversations. Let's connect.</p>
+                 <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
+                        <a href="https://facebook.com/mrfajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center btn-tech px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md">
+                            Connect on Facebook
+                        </a>
+                        <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center btn-social px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-sm">
+                            Connect on LinkedIn
+                        </a>
+                 </div>
+            </div>
+        </section>
+    </main>
+    
+    <button id="back-to-top" class="hidden fixed bottom-5 right-5 bg-slate-800 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-slate-900 z-50" aria-label="Back to top">
+        <span class="text-2xl" aria-hidden="true">↑</span>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll Progress
+            const progressBar = document.getElementById('scroll-progress');
+            window.addEventListener('scroll', () => {
+                const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercentage = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = scrollPercentage + '%';
+            });
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const navLinksMobile = document.querySelectorAll('.nav-link-mobile');
+            const hamburgerIcon = document.getElementById('hamburger-icon').children;
+            let isMenuOpen = false;
+
+            mobileMenuButton.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                mobileMenu.classList.toggle('hidden');
+                
+                if (isMenuOpen) {
+                    hamburgerIcon[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                    hamburgerIcon[1].style.opacity = '0';
+                    hamburgerIcon[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+                } else {
+                    hamburgerIcon[0].style.transform = 'rotate(0)';
+                    hamburgerIcon[1].style.opacity = '1';
+                    hamburgerIcon[2].style.transform = 'rotate(0)';
+                }
+            });
+
+            navLinksMobile.forEach(link => {
+                link.addEventListener('click', () => {
+                    isMenuOpen = false;
+                    mobileMenu.classList.add('hidden');
+                    hamburgerIcon[0].style.transform = 'rotate(0)';
+                    hamburgerIcon[1].style.opacity = '1';
+                    hamburgerIcon[2].style.transform = 'rotate(0)';
+                });
+            });
+
+            // Fade-in sections
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Back to top
+            const backToTopButton = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('hidden');
+                } else {
+                    backToTopButton.classList.add('hidden');
+                }
+            });
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Tabs
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanels = document.querySelectorAll('.tab-panel');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetPanelId = button.id.replace('btn', 'panel');
+                    
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('tab-active');
+                        btn.classList.add('tab-inactive');
+                    });
+                    button.classList.add('tab-active');
+                    button.classList.remove('tab-inactive');
+
+                    tabPanels.forEach(panel => {
+                        if (panel.id === targetPanelId) {
+                            panel.classList.remove('hidden');
+                        } else {
+                            panel.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
