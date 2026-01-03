@@ -35,15 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
     <!-- Chosen Palette: Professional & Innovative -->
     <!-- Application Structure Plan: The SPA is designed as a top-down narrative journey. It starts with a high-impact Hero section to immediately establish Fajarudin Akbar's brand and key metrics. This flows into a chronological "Journey" section to build a personal connection. The core of the app is the interactive "Pillars of Practice" section, using a tabbed interface to allow users to self-select their area of interest (Teaching, Training, EdTech) without overwhelming them. This design choice promotes exploration. It's followed by a dedicated, filterable "EdTech Projects" showcase to provide tangible proof of his skills. The narrative is then reinforced with social proof in the "Impact & Recognition" section, featuring a data visualization for his rating and qualitative testimonials. The page concludes with clear, audience-specific Calls-to-Action. This structure guides the user from who he is, to what he does, how he does it, the results he gets, and finally, how to engage with him, creating a comprehensive and persuasive user experience. -->
-    <!-- Visualization & Content Choices: 
-         - Professional Snapshot (Hero): Goal: Inform/Impress. Method: Dynamic stats (HTML/JS). Interaction: None. Justification: Provides immediate credibility.
-         - Educator's Journey: Goal: Organize/Narrate. Method: Vertical timeline (HTML/CSS). Interaction: Scroll-based discovery. Justification: Clearly visualizes career progression.
-         - Core Pillars: Goal: Organize/Compare. Method: Tabbed content sections (HTML/JS). Interaction: User clicks tabs to reveal detailed content. Justification: Manages information density and allows user-driven exploration of his three key specializations.
-         - Verified Impact Rating: Goal: Inform/Compare. Method: Donut Chart (Chart.js/Canvas). Interaction: Hover for details. Justification: Visually represents his high satisfaction rating in a more engaging way than text alone.
-         - EdTech Projects: Goal: Organize/Inform. Method: Interactive card grid (HTML/CSS/JS). Interaction: Buttons to filter projects by technology type (AI, App Development, etc.). Justification: Showcases the breadth and depth of his technical work and allows recruiters or collaborators to quickly find relevant examples.
-         - Global Affiliations: Goal: Inform. Method: Logo wall/list (HTML/CSS). Interaction: None. Justification: Quickly establishes his global standing and authority.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -194,16 +186,18 @@
                      class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-8 border-4 border-white shadow-xl">
                 <h1 class="text-5xl font-extrabold sm:text-6xl md:text-7xl tracking-tighter">Fajarudin Akbar</h1>
                 <p class="mt-4 max-w-4xl mx-auto text-lg md:text-xl text-gray-700">English Language Teacher&nbsp;•&nbsp;TEFL/TESOL Educator&nbsp;•&nbsp;Educational Technology Practitioner</p>
-                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-600">Pioneering the integration of AI and Open Educational Resources to create dynamic, student-centered learning experiences for a global audience.</p>
-                <!-- This grid correctly stacks on mobile (grid-cols-1) and goes side-by-side on sm screens -->
-                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-2xl mx-auto">
-                    <div class="card bg-white p-6 rounded-xl">
-                        <p class="text-5xl font-bold text-accent">7+</p>
-                        <p class="mt-2 text-lg font-medium text-gray-700">Years of Experience</p>
+                <p class="mt-6 max-w-3xl mx-auto text-lg text-gray-600">Leveraging technology and Open Educational Resources to create dynamic, student-centered learning experiences for a global audience.</p>
+                
+                <!-- UPDATED QUALITATIVE GRID -->
+                <!-- Replaced icons with descriptive text cards using left-borders for visual interest -->
+                <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <div class="card bg-white p-8 rounded-xl text-left hover:bg-gray-50 transition-colors border-l-4 border-accent shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Pedagogical Expertise</h3>
+                        <p class="text-gray-600 leading-relaxed">Delivering student-centered, communicative language instruction grounded in global standards (GSE) to drive measurable proficiency gains in Business and Academic English.</p>
                     </div>
-                    <div class="card bg-white p-6 rounded-xl">
-                        <p class="text-5xl font-bold text-accent">300+</p>
-                        <p class="mt-2 text-lg font-medium text-gray-700">CPD Courses</p>
+                    <div class="card bg-white p-8 rounded-xl text-left hover:bg-gray-50 transition-colors border-l-4 border-yellow-400 shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Continuous Innovation</h3>
+                        <p class="text-gray-600 leading-relaxed">Bridging the gap between traditional teaching and modern technology by creatively integrating EdTech tools and Open Educational Resources (OER) to empower learners.</p>
                     </div>
                 </div>
             </div>
@@ -445,13 +439,13 @@
                  <h2 class="text-4xl font-extrabold tracking-tight">Let's Collaborate</h2>
                  <p class="mt-4 max-w-2xl mx-auto text-lg text-gray-600">I am always open to new opportunities, collaborations, and conversations. Whether you're a potential student, a fellow educator, or an institution looking to innovate, I'd love to connect.</p>
                  <div class="mt-10 flex flex-col sm:flex-row justify-center items-center gap-4">
-                       <!-- These buttons correctly go full-width (w-full) on mobile and auto-width (sm:w-auto) on larger screens -->
-                       <a href="https://facebook.com/mrfajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                           Connect on Facebook
-                       </a>
-                       <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
-                           Connect on LinkedIn
-                       </a>
+                        <!-- These buttons correctly go full-width (w-full) on mobile and auto-width (sm:w-auto) on larger screens -->
+                        <a href="https://facebook.com/mrfajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                            Connect on Facebook
+                        </a>
+                        <a href="https://linkedin.com/in/fajarudinakbar" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-full font-medium text-lg transition-transform duration-300 hover:scale-105 shadow-md hover:shadow-lg">
+                            Connect on LinkedIn
+                        </a>
                  </div>
             </div>
         </section>
@@ -551,10 +545,6 @@
                     });
                 });
             });
-
-            // Chart.js implementation (REMOVED)
-            // const ctx = document.getElementById('impactChart').getContext('2d');
-            // ... chart code was here ...
         });
     </script>
 </body>
