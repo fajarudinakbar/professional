@@ -660,6 +660,34 @@
         <i class="fa-solid fa-arrow-up text-lg sm:text-xl font-black"></i>
     </button>
 
+    <!-- AI Feature Popup Modal -->
+    <div id="ai-popup" class="fixed inset-0 z-[100] flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+        <!-- Backdrop -->
+        <div id="ai-popup-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm cursor-pointer"></div>
+
+        <!-- Modal Content -->
+        <div class="relative w-full max-w-md bg-white border-4 border-dark shadow-neo p-8 transform transition-transform duration-300 scale-95 origin-center z-10" id="ai-popup-content">
+            <!-- Close Button -->
+            <button id="ai-popup-close" class="absolute -top-4 -right-4 w-10 h-10 flex items-center justify-center border-4 border-dark bg-white text-dark hover:bg-highlight transition-colors shadow-neo-sm focus:outline-none" aria-label="Close popup">
+                <i class="fa-solid fa-xmark text-xl font-black"></i>
+            </button>
+
+            <!-- Content -->
+            <div class="flex flex-col items-center text-center">
+                <div class="w-16 h-16 bg-accent border-4 border-dark flex items-center justify-center mb-6 shadow-neo-sm transform -rotate-3">
+                    <i class="fa-solid fa-microchip text-3xl text-white"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-black uppercase tracking-tight text-dark mb-4">Innovate with AI</h3>
+                <p class="text-slate-600 font-medium mb-8 text-sm sm:text-base leading-relaxed">
+                    Discover practical frameworks to integrate Generative AI into your English language teaching. Authentic tasks, visible outcomes, and communicative principles.
+                </p>
+                <a href="https://fajarudinakbar.online/teaching-english-innovatively-ai.html" class="neo-btn w-full bg-highlight text-dark px-6 py-4 text-base font-black uppercase flex items-center justify-center gap-3 hover:bg-yellow-400">
+                    Explore the Guide <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu toggle
@@ -760,6 +788,39 @@
                     });
                 });
             });
+
+            // AI Popup Functionality
+            const aiPopup = document.getElementById('ai-popup');
+            const aiPopupBackdrop = document.getElementById('ai-popup-backdrop');
+            const aiPopupClose = document.getElementById('ai-popup-close');
+            const aiPopupContent = document.getElementById('ai-popup-content');
+
+            // Show popup if it hasn't been shown in this session
+            if (!sessionStorage.getItem('aiPopupShown')) {
+                // Show after 2 seconds for a smoother entrance
+                setTimeout(() => {
+                    aiPopup.classList.remove('hidden');
+                    // Force a reflow to enable the transition
+                    void aiPopup.offsetWidth;
+                    aiPopup.classList.remove('opacity-0');
+                    aiPopupContent.classList.remove('scale-95');
+                    
+                    // Mark as shown in sessionStorage
+                    sessionStorage.setItem('aiPopupShown', 'true');
+                }, 2000);
+            }
+
+            const closePopup = () => {
+                aiPopup.classList.add('opacity-0');
+                aiPopupContent.classList.add('scale-95');
+                // Wait for the transition to finish before hiding from DOM
+                setTimeout(() => {
+                    aiPopup.classList.add('hidden');
+                }, 300);
+            };
+
+            aiPopupClose.addEventListener('click', closePopup);
+            aiPopupBackdrop.addEventListener('click', closePopup);
         });
     </script>
 </body>
